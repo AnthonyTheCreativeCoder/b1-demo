@@ -1,0 +1,44 @@
+/* SplashDetailsContainer.module.css */
+.containerSplash {
+    max-width: 582px;
+    margin-left: auto;
+    position: relative;
+    width: 100%;
+  }
+  
+  .row {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @media (max-width: 1300px) {
+    .containerSplash {
+      margin-left: auto;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .splashBox {
+      width: 12px;
+      height: 12px;
+    }
+  
+    .containerSplash {
+      max-width: 100%;
+      margin-left: auto;
+      width: 100%;
+    }
+  
+    .rainWorkDetailsLeft,
+    .rainWorkDetailsRight,
+    .rainWorkDetailsLast {
+      width: 100%;
+      max-width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+  

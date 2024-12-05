@@ -1,0 +1,62 @@
+.testimonial_area {
+  background-color: var(--body1);
+  padding: 220px 0 160px;
+}
+
+.testi_box {
+  max-width: 80%;
+  margin-left: auto;
+  position: relative;
+}
+
+.head_qoute {
+  font-size: 48px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  font-family: "elzamedium";
+}
+
+.head_qoute span.typewrite {
+  min-height: 370px;
+  display: block;
+}
+
+.testi_box h6 {
+  font-size: 18px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 30px 0 0;
+}
+
+.quote_icon {
+  position: absolute;
+  top: -5px;
+  left: -90px;
+}
+
+.head_qoute .typewrite > .wrap::after {
+  background-color: #fff;
+}
+@media(max-width: 1200px){
+.head_qoute {
+  font-size: 36px;
+}
+
+}
+@media(max-width:767px){
+  .testimonial_area {
+    padding: 150px 0 60px;
+}
+.head_qoute {
+  font-size: 24px;
+}
+.quote_icon {
+  top: -10px;
+  left: -60px;
+  max-width: 50px;
+}
+}

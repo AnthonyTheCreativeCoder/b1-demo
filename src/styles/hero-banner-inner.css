@@ -1,0 +1,103 @@
+/*** Hero banner styles Start */
+.image-grid {
+  display: grid;
+  width: 100%;
+  position: relative;
+  background-color: #000;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.3;
+}
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* .overlay {
+  position: fixed;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 10rem;
+  width: 100vw;
+  margin: 0 auto;
+  z-index: -1;
+}
+.overlay div {
+  opacity: 0.2;
+  border-left: 0.5px white solid;
+  border-right: 0.5px white solid;
+} */
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  z-index: 9;
+  bottom: auto;
+  color: #fff;
+  max-width: 950px;
+  width: 100%;
+  padding: 0 5%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-family: "elzablack";
+  font-size: 8em;
+}
+
+.wrapper-animation {
+  max-width: 100%;
+  font-size: 2.5em;
+  line-height: 1.1;
+  font-family: "elzamedium";
+  min-height: 200px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.col12 {
+  position: relative;
+}
+
+/*** Hero banner styles End */
+
+@media (max-width: 767px) {
+  .wrapper-animation {
+    font-size: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1;
+}
+.cursor {
+  font-size: 22px;
+}
+  .image-container {
+    height: 100vh;
+  }
+
+  .hero-content h1 {
+    font-size: 6em;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 575px) {
+.wrapper-animation {
+  font-size: 24px;
+  line-height: 1.5;
+}
+}

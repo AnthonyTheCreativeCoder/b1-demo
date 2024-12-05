@@ -1,0 +1,12 @@
+.typewrite {
+    display: inline;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid orange; /* Adjust color and width as needed */
+    font-size: 1.5em;
+    letter-spacing: 0.15em;
+  }
+  
+  .wrap {
+    display: inline;
+  }

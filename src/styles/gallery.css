@@ -1,0 +1,356 @@
+/**** Featured work Styles start ****/
+
+.featured_work_area {
+  border-top: 1px solid #2f2f2f;
+  position: relative;
+  background-color: var(--body1);
+}
+
+.featured_work_area .typewrite > .wrap::after {
+  background-color: #fff;
+}
+
+.featured_work_area .smll_bx_wht img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+}
+
+.featured_work_area .smll_bx_wht {
+  position: relative;
+}
+
+.featured_work_area h5 {
+  color: #fff;
+  text-align: right;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-family: "elzablack";
+}
+
+.featured_work_area h6 {
+  color: #fff;
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.3px;
+  font-family: "elzablack";
+}
+
+.featured_work_area .head_head h2 {
+  color: #fff;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 120px */
+  margin-bottom: 30px;
+  font-family: "elzablack";
+}
+
+.ftr_intro_animie {
+  font-size: 44px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 57.6px */
+  font-family: "elzamedium";
+}
+
+.featured_work_area .featured_intro {
+  max-width: 750px;
+  height: 200px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.featured_work_area .pt-100 {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+.gallery-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.gallery-item img {
+  filter: opacity(20%);
+  transition: all 0.3s ease-in-out;
+  height: 350px;
+  object-fit: cover;
+}
+
+.box-gallery:hover img {
+  filter: opacity(100%);
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.09);
+  overflow: hidden;
+  visibility: visible;
+}
+.item_image {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.item_image img {
+  transition: all 0.3s ease-in-out;
+}
+.box-gallery:hover .item_image {
+  border-radius: 40px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.photo-gallery {
+  padding: 100px 0 130px;
+  background-color: var(--body1);
+}
+.photo-gallery a {
+  text-decoration: none;
+}
+
+.desc_pic {
+  padding: 40px 0;
+}
+
+.box-gallery h2 {
+  color: #fff;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 120%; /* 46.8px */
+  position: relative;
+  display: table;
+  transition: all 0.3s ease-in-out;
+  font-family: "elzabold";
+}
+
+.box-gallery h2 br{
+  display: none;
+}
+
+@media(min-width: 768px){
+  .box-gallery h2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    }
+}
+
+.box-gallery:hover h2 {
+  color: var(--primary1);
+  transition: all 0.3s ease-in-out;
+}
+
+.wdth_ttle
+{
+  display: table;
+  position: relative;
+}
+
+.box-gallery .wdth_ttle:after {
+  width: 100%;
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  top: auto;
+  height: 2px;
+  background-color: #fff;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+}
+
+.box-gallery:hover .wdth_ttle:after {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.box-gallery h3 {
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 46.8px */
+}
+@media(min-width: 768px){
+  .box-gallery h3 {
+    display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+}
+
+
+.more_btn {
+  position: absolute;
+  top: -25px;
+  right: 23%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.more_btn img {
+  transition: all 0.3s ease-in-out;
+}
+
+.box-gallery:hover .more_btn {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  visibility: visible;
+}
+
+.box-gallery:hover .more_btn img {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  visibility: visible;
+}
+
+.box-gallery {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+.more_btn h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "nordregular";
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.more_btn a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+}
+
+.more_btn {
+  width: 100px;
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+}
+
+.more_work_area{
+  position: relative;
+  border: 0;
+}
+
+.more_work_area .pt-200 {
+  padding-top: 150px;
+  padding-bottom: 0;
+}
+
+.desc_pic .list-group-item {
+  background: transparent;
+  border: 0;
+  padding: 0px;
+  position: relative;
+  color: #fff;
+}
+
+.desc_pic .list-group-item:after{
+  content: "/";
+  padding: 0 10px;
+}
+
+.desc_pic .list-group-item:last-child:after
+{
+  content: none;
+}
+
+
+/**** Featured work Styles End ****/
+
+@media (max-width: 1200px) {
+
+.gallery-item img {
+  height: 275px;
+}
+.featured_work_area .head_head h2 {
+  font-size: 80px;
+}
+}
+@media (max-width: 1025px) {
+.featured_work_area .head_head h2 {
+  font-size: 60px;
+}
+.ftr_intro_animie {
+  font-size: 34px;
+}
+.box-gallery h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+}
+
+@media (max-width: 767px) {
+  .featured_work_area .head_head h2 {
+    font-size: 55px;
+    line-height: 100%;
+  }
+  .ftr_intro_animie {
+    font-size: 34px;
+  }
+  .gallery-item img {
+    filter: none;
+    height: auto;
+    transform: scale(1);
+  }
+  .box-gallery .item_image {
+    border-radius: 20px;
+  }
+  .box-gallery .more_btn {
+    opacity: 1;
+    visibility: visible;
+  }
+  .featured_work_area h5 {
+    font-size: 16px;
+  }
+  .featured_work_area h6 {
+    font-size: 14px;
+  }
+  .featured_work_area .featured_intro {
+    height: auto;
+    position: static;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .box-gallery h2 {
+    margin-bottom: 20px;
+    font-size: 29px;
+  }
+  .featured_work_area .pt-100 {
+    padding-bottom: 30px;
+  }
+  .photo-gallery {
+    padding: 60px 0 100px;
+  }
+}

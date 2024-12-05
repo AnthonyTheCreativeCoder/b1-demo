@@ -1,0 +1,165 @@
+.home-page-adventure-wrapper .gallery-work-details-area {
+  padding: 150px 0;
+  background-color: var(--body1);
+}
+.home-page-adventure-wrapper .gallery-work-details-area img {
+  width: 100%;
+  display: block;
+  margin-bottom: 2em;
+}
+.home-page-adventure-wrapper .gallery-bg-white {
+  background-color: #fff;
+  padding: 0 0 120px;
+}
+
+.home-page-adventure-wrapper .first_row_gallery,
+.home-page-adventure-wrapper .third_row_gallery {
+  justify-content: space-between;
+}
+
+.home-page-adventure-wrapper .first_row_gallery .glry_hm {
+  margin-bottom: 200px;
+}
+
+.home-page-adventure-wrapper .first_row_gallery .glry_hm:last-of-type {
+  margin-bottom: 0px;
+}
+
+.home-page-adventure-wrapper .first_row_gallery img{
+  filter: opacity(0.1);
+}
+.gallery-work-details-area .glry_hm_image
+{
+  position: relative;
+}
+.gallery-work-details-area .glry_hm_image img{
+  opacity: 0.2;
+  filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+  border-radius: 35px;
+  position: relative;
+}
+
+.gallery-work-details-area .glry_hm_image:hover img{
+  opacity: 1;
+  filter: grayscale(100%);
+  transition: all 0.3s ease-in-out;
+  border-radius: 0;
+}
+.gallery-work-details-area .glry_hm_image:after
+{
+  content: '';
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(33deg, #1E5DFF 0%, #FF6534 100%), linear-gradient(0deg, var(--White, #FFF) 0%, var(--White, #FFF) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  mix-blend-mode: hard-light;
+}
+
+
+.gallery-work-details-area .glry_hm_image:hover:after{
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.home-page-adventure-wrapper .glry_hm h5
+{
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.3px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  color: black;
+}
+
+.left_module a, .rt_module a
+{
+  text-decoration: none;
+  color: black;
+}
+
+.home-page-adventure-wrapper .glry_hm:hover h5{
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.home-page-adventure-wrapper .middle_row_gallery {
+  margin-bottom: 200px;
+}
+
+.home-page-adventure-wrapper .rt_module {
+  margin-top: 0;
+}
+
+.home-page-adventure-wrapper .rt_module img {
+  max-width: 100%;
+  margin-left: auto;
+}
+.home-page-adventure-wrapper .first_row_gallery .left_module .glry_hm:nth-child(1) {
+  margin-top: 133px;
+}
+.home-page-adventure-wrapper .third_row_gallery .rt_module .glry_hm:nth-child(1) {
+  max-width: 60%;
+}
+
+
+@media (max-width: 991px) {
+.home-page-adventure-wrapper .first_row_gallery .glry_hm {
+  margin-bottom: 60px;
+}
+}
+
+@media (max-width: 767px) {
+  .home-page-adventure-wrapper .first_row_gallery {
+    column-gap: 15px;
+  }
+
+  .home-page-adventure-wrapper .first_row_gallery .glry_hm:nth-child(1) {
+    padding-top: 0;
+  }
+  .home-page-adventure-wrapper .first_row_gallery .glry_hm {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page-adventure-wrapper .first_row_gallery .left_module .glry_hm:nth-child(1) {
+    margin-top: 60px;
+  }
+  .home-page-adventure-wrapper .middle_row_gallery {
+    margin-bottom: 60px;
+  }
+  .home-page-adventure-wrapper .left_main_gall {
+    width: 100%;
+  }
+  .home-page-adventure-wrapper .rt_main_gall {
+    width: 100%;
+  }
+  .home-page-adventure-wrapper
+    .first_row_gallery
+    .left_module
+    img:nth-child(1) {
+    padding-top: 0;
+  }
+  .home-page-adventure-wrapper .first_row_gallery .glry_hm,
+  .third_row_gallery img {
+    margin-bottom: 60px;
+  }
+  .gallery-work-details-area .glry_hm_image:after {
+    opacity: 1;
+  }
+  
+.home-page-adventure-wrapper .glry_hm h5 {
+  font-size: 20px;
+  opacity: 1;
+}
+}

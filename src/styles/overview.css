@@ -1,0 +1,56 @@
+.overview_area{
+    padding: 200px 0;
+    background-color: var(--body1);
+}
+
+.overview_intro_para span.typewrite
+{
+    min-height: 370px;
+    display: block;
+}
+
+.overview_intro_head{
+    font-size: 20px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: "elzamedium";
+}
+.overview_intro_head .text2{
+    padding-left: 15px;
+}
+.overview_intro_head .cursor {
+    font-size: 28px;
+}
+
+.overview_intro_para
+{
+    font-size: 48px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: 'elzamedium';
+}
+
+.overview_intro_head img{
+    margin-right: 15px;
+}
+
+.overview_intro_head .typewrite > .wrap::after, .overview_intro_para .typewrite > .wrap::after
+{
+  background-color: #fff;
+}
+
+
+
+@media(max-width:767px){
+.overview_intro_para {
+    font-size: 24px;
+}
+.overview_intro_head {
+    margin-bottom: 40px;
+}
+
+}

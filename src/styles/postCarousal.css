@@ -1,0 +1,75 @@
+.blog-homepage-container {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+}
+.blog-homepage-container .blog-title {
+    text-align: center;
+    margin-top: 8rem;
+}
+.blog-homepage-container .selected-post-hero-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+.blog-homepage-container .carousel {
+    margin-top: 3rem;
+    overflow-x: hidden;
+    position: relative;
+}
+.blog-homepage-container .carousel .carousel-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 27%;
+    cursor: move;
+}
+.blog-homepage-container .carousel .carousel-container .carousel-container__post {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.blog-homepage-container .carousel .carousel-container .carousel-container__post .carousel-container__post__image {
+    width: 100%;
+    aspect-ratio: 1.7777777778;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(85%) grayscale(100%);
+    transition: all 0.75s cubic-bezier(0.86, 0, 0.07, 1);
+    display: block;
+}
+.blog-homepage-container .carousel .carousel-container .carousel-container__post .carousel-container__post__image:hover {
+    transform: scale(1.1);
+    filter: brightness(100%) grayscale(0%);
+}
+.blog-homepage-container .carousel .carousel-container .carousel-container__post .carousel-container__post__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    white-space: break-spaces;
+    user-select: none;
+    pointer-events: none;
+}
+.blog-homepage-container .carousel .carousel-scrollbar {
+    position: relative;
+    width: 100%;
+}
+.blog-homepage-container .carousel .carousel-scrollbar .carousel-scrollbar__bar {
+    height: 0.5rem;
+    width: 128px;
+    background-color: #919191;
+    border-radius: 50rem;
+    cursor: pointer;
+}
+.blog-homepage-container .carousel .carousel-scrollbar .carousel-scrollbar__bar:active {
+    background-color: #7c7c7c;
+}

@@ -1,0 +1,68 @@
+.breadcrumb_banner {
+    margin-top: -42px;
+    background: var(--body1);
+}
+
+.bg-gray-breadcrumb {
+    background-color: #DAD6CA;
+    padding: 30px 100px;
+    border-radius: 0 0 25px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.bg-gray-breadcrumb ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-end;
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.bg-gray-breadcrumb ul li {
+    font-size: 16px;
+    color: #000;
+    background: transparent;
+    border: 0;
+    padding: 0px;
+    position: relative;
+}
+.bg-gray-breadcrumb ul li:after{
+    content: "/";
+    padding: 0 10px;
+}
+
+.bg-gray-breadcrumb ul li:last-child:after
+{
+    content: none;
+}
+
+@media (max-width: 991px){
+    .bg-gray-breadcrumb {
+        padding: 30px 15px;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+    .bg-gray-breadcrumb ul li{
+        font-size: 14px;
+    }
+    .bg-gray-breadcrumb ul{
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 767px){
+.bg-gray-breadcrumb {
+    padding: 10px 15px;
+}
+.bg-gray-breadcrumb ul li {
+    font-size: 10px;
+}
+}

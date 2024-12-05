@@ -1,0 +1,1 @@
+docker build -t b1interactive-ui:stage -f ./Dockerfile.stage . && docker run --env-file .env --name b1interactive-ui --rm -p 3000:3000 b1interactive-ui:stage

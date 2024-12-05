@@ -1,0 +1,18 @@
+.rainWorkDetailsRight {
+    position: absolute;
+    max-width: 600px;
+    width: 100%;
+    right: auto;
+    top: 0;
+    left: 14%;
+  }
+  
+  .splashBox {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    opacity: 0;
+  }
+  
+  /* Add specific nth-of-type styles here */
+  

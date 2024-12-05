@@ -1,0 +1,33 @@
+.home_typing_area {
+  background-color: var(--body1);
+  min-height: 400px;
+  padding: 100px 0px 40px;
+}
+
+.home_typing_area .typewrite > .wrap::after {
+  background-color: #fff;
+}
+
+.home_typearea {
+  font-size: 48px;
+  line-height: 1.1;
+  font-family: "elzamedium";
+  min-height: 200px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 640px;
+  width: 100%;
+}
+
+@media (max-width: 575px) {
+  .home_typearea {
+    font-size: 30px;
+  }
+  .home_typing_area {
+    min-height: 320px;
+    padding: 40px 0px 40px;
+  }
+}

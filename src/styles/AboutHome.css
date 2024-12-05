@@ -1,0 +1,134 @@
+.home-page-adventure-wrapper {
+    background-color: #fff;
+    padding-bottom: 130px;
+}
+.home-page-adventure-wrapper .ft_msk_left img {
+    position: absolute;
+    top: -1px;
+    right: auto;
+    left: 0;
+}
+.home-page-adventure-wrapper .smll_bx_wht img {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    left: auto;
+}
+
+.home-page-adventure-wrapper .pagination-text h5 {
+    color: #000;
+    text-align: right;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-family: 'elzablack';
+}
+.home-page-adventure-wrapper .pagination-text h6 {
+    color: #000;
+    text-align: left;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%;
+    letter-spacing: 0.3px;
+    font-family: 'elzablack';
+}
+.title-text {
+    /* background: linear-gradient(89deg, #1E5DFF 1.89%, #FF6534 36.2%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent; */
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    margin-bottom: 2px;
+    font-family: 'elzablack';
+}
+.about_intro_area
+{
+    padding-bottom: 20px;
+}
+.about_intro_area .featured_intro {
+    max-width: 900px;
+    width: 100%;
+    padding-top: 15px;
+    min-height: 200px;
+}
+
+.about_intro_area .featured_intro h3 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: 'elzamedium';
+}
+.home-page-adventure-wrapper .pt-100 {
+    padding-top: 60px;
+    padding-bottom: 0px;
+}
+.about-description {
+    max-width: 850px;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    padding: 100px 0;
+    padding-bottom: 0;
+}
+.about-description p {
+font-family: 'elzamedium';
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; 
+}
+.home-page-adventure-wrapper .arrow_down_area {
+    background: #fff;
+}
+@media(min-width:768px){
+    .home-page-adventure-wrapper .container-splash
+    {
+        padding-left: 15%;
+    }
+}
+
+
+.title-text
+{
+    background: linear-gradient(
+    to right,
+    #1E5DFF 20%,
+    #FF6534 30%,
+    #711eff 70%,
+    #FF6534 80%
+);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+text-fill-color: transparent;
+background-size: 300% auto;
+animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@media(max-width: 1200px){
+    .title-text {
+        font-size: 60px;
+    }
+    .about_intro_area .featured_intro h3 {
+        font-size: 36px;
+      }
+      .about_intro_area .featured_intro{
+        min-height: 130px;
+      }
+      .home-page-adventure-wrapper .smll_bx_wht img {
+        right: 0;
+    }
+}
+@media(max-width: 767px){
+.about_intro_area .featured_intro h3 {
+    font-size: 26px;
+  }
+}

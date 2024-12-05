@@ -1,0 +1,308 @@
+.container-splash {
+  position: relative; /* Ensure relative positioning for absolute children */
+  height: 100%; /* Full height */
+}
+.container-splash .splash-box {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  opacity: 0;
+}
+
+.rain_animate_area_left .splash-box:nth-of-type(1) {
+  top: 0px;
+  left: 0;
+}
+.rain_animate_area_left .splash-box:nth-of-type(2) {
+  top: 50px;
+  left: 0px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(3) {
+  top: 25px;
+  left: 4.1%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(4) {
+  top: 50px;
+  left: 8%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(5) {
+  top: 24px;
+  left: 12.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(6) {
+  left: 12.2%;
+  top: 74px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(7) {
+  top: 49px;
+  left: 16.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(8) {
+  left: 16.5%;
+  top: 0;
+}
+.rain_animate_area_left .splash-box:nth-of-type(9) {
+  left: 20%;
+  top: 26px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(10) {
+  left: 20%;
+  top: 73px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(11) {
+  left: 24%;
+  top: 0;
+}
+.rain_animate_area_left .splash-box:nth-of-type(12) {
+  top: 25px;
+  left: 28%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(13) {
+  top: 75px;
+  left: 28%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(14) {
+  top: -50px;
+  left: 32.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(15) {
+  top: 0;
+  left: 32%;
+}
+
+.rain_animate_area_right .splash-box:nth-of-type(1) {
+  top: -24px;
+  left: 36.2%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(2) {
+  top: 0px;
+  left: 40.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(3) {
+  top: -25px;
+  left: 44.3%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(4) {
+  top: 24px;
+  left: 44.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(5) {
+  top: -49px;
+  left: 48.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(6) {
+  top: 0;
+  left: 48.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(7) {
+  top: -23px;
+  left: 52.7%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(8) {
+  top: 24px;
+  left: 52.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(9) {
+  top: -100px;
+  left: 67%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(10) {
+  top: 24px;
+  left: 67%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(11) {
+  top: -76px;
+  left: 71%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(12) {
+  top: -25px;
+  left: 71%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(13) {
+  top: -76px;
+  left: 80%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(14) {
+  top: -51px;
+  left: 84%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(15) {
+  top: -75px;
+  left: 88%;
+}
+
+.rain_animate_area_left {
+  position: absolute;
+  width: 600px;
+  max-width: 100%;
+  left: 5%;
+  top: 0;
+}
+.rain_animate_area_right {
+  position: absolute;
+  width: 600px;
+  max-width: 100%;
+  right: auto;
+  top: 0;
+  left: 5%;
+}
+.container-splash {
+  max-width: 1280px;
+  /* margin: auto; */
+  position: relative;
+  width: 100%;
+  margin: auto;
+  /* margin-left: 5%; */
+  padding-left: 3%;
+}
+.container-splash .row {
+  position: relative;
+  margin: 0;
+}
+@media (max-width: 1200px) {
+.container-splash .splash-box {
+  width: 12px;
+  height: 12px;
+}
+.ft_msk_left img {
+  max-width: 30px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(2) {
+  top: 36px;
+  left: 0px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(3) {
+  top: 23px;
+  left: 2.1%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(4) {
+  top: 38px;
+  left: 5%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(5) {
+  left: 7.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(6) {
+  left: 9.2%;
+  top: 51px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(7) {
+  top: 39px;
+  left: 13.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(8) {
+  left: 14.5%;
+  top: 0;
+}
+.rain_animate_area_left .splash-box:nth-of-type(9) {
+  left: 16%;
+  top: 26px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(10) {
+  left: 18%;
+  top: 45px;
+}
+.rain_animate_area_left .splash-box:nth-of-type(11) {
+  left: 20%;
+  top: 0;
+}
+.rain_animate_area_left .splash-box:nth-of-type(12) {
+  top: 25px;
+  left: 22%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(13) {
+  top: 60px;
+  left: 24%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(14) {
+  top: -20px;
+  left: 26.2%;
+}
+.rain_animate_area_left .splash-box:nth-of-type(15) {
+  top: 0;
+  left: 29%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(1) {
+  top: -14px;
+  left: 33.2%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(2) {
+  top: 0px;
+  left: 35.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(3) {
+  top: -11px;
+  left: 37.3%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(4) {
+  top: 24px;
+  left: 39.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(5) {
+  top: -27px;
+  left: 39.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(6) {
+  top: 0;
+  left: 42.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(7) {
+  top: -14px;
+  left: 44.7%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(8) {
+  top: 20px;
+  left: 46.5%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(9) {
+  top: -30px;
+  left: 50%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(10) {
+  top: 24px;
+  left: 53%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(11) {
+  top: -47px;
+  left: 53%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(12) {
+  top: -25px;
+  left: 56%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(13) {
+  top: -37px;
+  left: 58%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(14) {
+  top: -27px;
+  left: 60%;
+}
+.rain_animate_area_right .splash-box:nth-of-type(15) {
+  top: -5px;
+  left: 58%;
+}
+.home-page-adventure-wrapper .smll_bx_wht img {
+  max-width: 92px;
+}
+}
+
+@media (max-width: 767px) {
+  .ft_msk_left img {
+    max-width: 16px;
+}
+  .rain_animate_area_left {
+    left: 0;
+}
+.rain_animate_area_right {
+  left: 0;
+}
+  .container-splash .splash-box {
+      width: 8px;
+      height: 8px;
+  }
+
+  .others_work_area .ft_msk img {
+    max-width: 60px;
+}
+}

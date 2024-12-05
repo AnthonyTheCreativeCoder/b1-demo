@@ -1,0 +1,398 @@
+/*** Common styles Start ***/
+@font-face {
+  font-family: "elzablack";
+  src: url("../assets/fonts/elza_black-webfont.eot");
+  src: url("../assets/fonts/elza_black-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/elza_black-webfont.woff2") format("woff2"),
+    url("../assets/fonts/elza_black-webfont.woff") format("woff"),
+    url("../assets/fonts/elza_black-webfont.ttf") format("truetype"),
+    url("../assets/fonts/elza_black-webfont.svg#elzablack") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "elzabold";
+  src: url("../assets/fonts/elza-bold-webfont.eot");
+  src: url("../assets/fonts/elza-bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/elza-bold-webfont.woff2") format("woff2"),
+    url("../assets/fonts/elza-bold-webfont.woff") format("woff"),
+    url("../assets/fonts/elza-bold-webfont.ttf") format("truetype"),
+    url("../assets/fonts/elza-bold-webfont.svg#elza_trialbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "elzamedium";
+  src: url("../assets/fonts/elza_medium-webfont.eot");
+  src: url("../assets/fonts/elza_medium-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/elza_medium-webfont.woff2") format("woff2"),
+    url("../assets/fonts/elza_medium-webfont.woff") format("woff"),
+    url("../assets/fonts/elza_medium-webfont.ttf") format("truetype"),
+    url("../assets/fonts/elza_medium-webfont.svg#elzamedium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "elzaregular";
+  src: url("../assets/fonts/elza-regular-webfont.eot");
+  src: url("../assets/fonts/elza-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/elza-regular-webfont.woff2") format("woff2"),
+    url("../assets/fonts/elza-regular-webfont.woff") format("woff"),
+    url("../assets/fonts/elza-regular-webfont.ttf") format("truetype"),
+    url("../assets/fonts/elza-regular-webfont.svg#elzaregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "nordregular";
+  src: url("../assets/fonts/new_nord-webfont.eot");
+  src: url("../assets/fonts/new_nord-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/new_nord-webfont.woff2") format("woff2"),
+    url("../assets/fonts/new_nord-webfont.woff") format("woff"),
+    url("../assets/fonts/new_nord-webfont.ttf") format("truetype"),
+    url("../assets/fonts/new_nord-webfont.svg#new_nordregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+:root {
+  --body1: #0f0f0f;
+  --body2: #2e2c32;
+  --body3: #f1f5f6;
+  --primary1: #1e5dff;
+  --primary2: #00e0bf;
+  --primary3: #2dd366;
+}
+
+/* #viewport {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#scroll-container {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "elzaregular";
+}
+
+.spacer {
+  height: 100vh;
+  background-color: var(--body1);
+}
+
+.container-fluid, .container {
+  max-width: 1460px;
+  position: relative;
+  margin: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.container-fluid > .container-fluid
+{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.cursor {
+  font-family: "elzaregular";
+  color: #fff;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.cursor.blacked {
+  color: var(--body1);
+}
+
+.col-12 {
+  position: relative;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: white;
+  pointer-events: none;
+}
+
+.cssanimation,
+.cssanimation span {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.fadeInBottom {
+  animation-name: fadeInBottom;
+}
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.white_btn {
+  background-color: #fff;
+  padding: 20px 30px;
+  font-family: "elzabold";
+  font-size: 14px;
+  font-style: normal;
+  line-height: 150%; /* 21px */
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  display: table;
+  margin: auto;
+  border-radius: 2px;
+}
+
+.white_btn:hover {
+  color: #fff;
+  background: linear-gradient(259deg, #ff6534 0%, #1e5dff 100%);
+}
+
+.white_btn_black_bg {
+  font-family: "elzabold";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+  border-radius: 4px;
+  color: #000;
+  display: table;
+  background: #fff;
+  padding: 25px 25px 23px;
+  text-decoration: none;
+}
+
+.white_btn_black_bg a {
+  text-decoration: none;
+}
+
+/*** typewriter animation start **/
+
+.typewrite > .wrap::after {
+  content: "|";
+  animation: blink-cursor 0.7s steps(40) infinite;
+  color: var(--body1); /* Color of the cursor */
+  display: inline-block;
+  width: 1px;
+  height: auto;
+  background-color: var(--body1);
+  margin-left: 5px;
+  -webkit-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+}
+
+@keyframes blink-cursor {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*** typewriter animation End **/
+
+/*** Text Gradient animation Start **/
+.text_gradient {
+  opacity: 0.9;
+  background: -o-linear-gradient(right, #2d55d7, #d85b3d);
+  background: -moz-linear-gradient(right, #2d55d7, #d85b3d);
+  background: linear-gradient(to right, #2d55d7, #d85b3d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: move 5s linear infinite;
+}
+/* .text_gradient{
+  background: linear-gradient(
+    to right,
+    #1E5DFF 20%,
+    #FF6534 30%,
+    #711eff 70%,
+    #FF6534 80%
+);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+text-fill-color: transparent;
+background-size: 500% auto;
+animation: textShine 8s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+} */
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/*** Text Gradient animation end **/
+
+.border-animation {
+  text-align: center;
+  color: #fff;
+  position: relative;
+  transition: 500ms ease;
+}
+.border-animation:before {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  content: "";
+  background: #fff;
+  top: 0px;
+  left: 0px;
+  transition: 100ms width ease 300ms;
+  -web-kit-transition: 100ms width ease 300ms;
+}
+.border-animation:after {
+  position: absolute;
+  width: 2px;
+  height: 0;
+  content: "";
+  background: #fff;
+  top: 0px;
+  right: 0px;
+  transition: 100ms height ease 200ms;
+  -web-kit-transition: 100ms height ease 200ms;
+}
+.border-animation-inner:after {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  content: "";
+  background: #fff;
+  bottom: 0px;
+  right: 0px;
+  transition: 100ms width ease 100ms;
+  -web-kit-transition: 100ms width ease 100ms;
+}
+.border-animation-inner:before {
+  position: absolute;
+  width: 2px;
+  height: 0;
+  content: "";
+  background: #fff;
+  bottom: 0px;
+  left: 0px;
+  transition: 100ms height ease 0ms;
+  -web-kit-transition: 100ms height ease 0ms;
+}
+.border-animation:hover {
+  border-color: transparent;
+}
+
+.border-animation:hover:before {
+  width: 100%;
+  transition: 100ms width ease 0ms;
+  -web-kit-transition: 100ms width ease 0ms;
+}
+.border-animation:hover:after {
+  height: 100%;
+  transition: 100ms height ease 100ms;
+  -web-kit-transition: 100ms height ease 100ms;
+}
+.border-animation:hover .border-animation-inner:after {
+  width: 100%;
+  transition: 100ms width ease 200ms;
+  -web-kit-transition: 100ms width ease 200ms;
+}
+.border-animation:hover .border-animation-inner:before {
+  height: 100%;
+  transition: 100ms height ease 300ms;
+  -web-kit-transition: 100ms height ease 300ms;
+}
+
+/*** Common styles End ***/
+
+/*** Reponsive Start ***/
+@media (max-width: 1279px) {
+  .container-fluid, .container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media (max-width: 1200px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-fluid, .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-fluid, .container {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/*** Reponsive End ***/
