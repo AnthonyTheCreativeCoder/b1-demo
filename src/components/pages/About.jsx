@@ -16,7 +16,11 @@ function About() {
           description: lorem.description,
         }}
       />
-     
+      <ArrowBounce id="next-section" />
+      <section className="aboutDescWrapper">
+        <SplashContainer />
+        <AboutDescription  />
+      </section>
     </>
   );
 }

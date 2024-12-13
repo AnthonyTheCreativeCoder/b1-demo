@@ -19,7 +19,25 @@ const Service = () => {
           description: lorem.description,
         }}
       />
-      
+      <ArrowBounce id="next-section" />
+      {/* <FeaturedService
+        service={{
+          pagination: lorem.service.pagination.first,
+          title: "service",
+          short_title: "Featured",
+          description: lorem.sort_desc,
+          works: galleryItemsData,
+        }}
+      /> */}
+      <section className="home-page-adventure-wrapper">
+        <SplashContainer />
+        <AboutSection
+          paginationText={lorem.service.pagination.second}
+          title={"Adventure"}
+          introText={lorem.description}
+          galleryItems={galleryItemsData}
+        />
+      </section>
     </>
   );
 };

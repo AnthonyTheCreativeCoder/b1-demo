@@ -17,7 +17,7 @@ function Contact() {
       />
       </div>
       <ArrowBounce id="contact-section" />
-     
+      <ContactForm />
     </>
   );
 }
