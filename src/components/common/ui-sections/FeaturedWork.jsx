@@ -1,59 +1,32 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import Typewriter from "../animations/Typewriter";
 import "../../../styles/gallery.css";
 import MaskWhite from "../../../assets/images/mask-white.svg";
 import EllipseMore from "../../../assets/images/ellipse-more.svg";
 import "../../../styles/other-work.css";
-import { gsap } from "gsap";
 
 const FeaturedWork = ({
   features: { pagination, title, short_title, description, works },
 }) => {
   const navigate = useNavigate();
-
   const navigateWithAnimation = (work) => {
     const imageElement = document.getElementById(`image-${work.item_id}`);
     if (!imageElement) {
       console.warn(`Image element not found for ID: image-${work.item_id}`);
       return;
     }
+  };
 
-    const rect = imageElement.getBoundingClientRect();
-
-    const clone = imageElement.cloneNode(true);
-    Object.assign(clone.style, {
-      position: "fixed",
-      top: `${rect.top}px`,
-      left: `${rect.left}px`,
-      width: `${rect.width}px`,
-      height: `${rect.height}px`,
-      zIndex: 1000,
-      pointerEvents: "none",
-    });
-
-    document.body.appendChild(clone);
-
-    gsap.to(clone, {
-      duration: 1,
-      width: "100vw",
-      height: "100vh",
-      top: 0,
-      left: 0,
-      ease: "power3.inOut",
-      onComplete: () => {
-        navigate(`/works/${work.item_url.split("/").filter(Boolean).pop()}`, {
-          state: {
-            imageSrc: work.item_thumbnail,
-            rect,
-          },
-        });
-
-        requestAnimationFrame(() => {
-          clone.remove();
-        });
-      },
-    });
+   const handleImageClick = (id, url) => {
+    // console.log("id is"+id);
+    // console.log("id is"+url);
+      url = url ? url.replace(/\s+/g, "-") : "";
+      const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
+      // navigate(`/content${queryString}`);
+      navigate(`/content${queryString}`, { state: { selectedImageId: id } });
+      // navigate(`/works/${url}`, { state: { selectedImageId: id } });
   };
 
   return (
@@ -97,19 +70,28 @@ const FeaturedWork = ({
             {works.map((work) => (
               <div className="col box-gallery" data-aos="fade-up" key={work.id}>
                 <div className="more_btn">
-                  <Link to={`/works/${work.item_url.split("/").filter(Boolean).pop()}`}>
+                  <a onClick={() => handleImageClick(work.item_id, work.item_title)}>
                     <img src={EllipseMore} alt="ellipseIcon" />
                     <h4>More</h4>
-                  </Link>
+                  </a>
                 </div>
-                <a className="gallery-item" href="javascript:void(0)" onClick={() => navigateWithAnimation(work)}>
+                  <motion.div
+                  key={work.item_id}
+                  layoutId={`image-${work.item_id}`} // Shared layout id for image animation
+                  onClick={() => handleImageClick(work.item_id, work.item_title)}
+                  style={{ cursor: "pointer" }}
+                  >
+                <a className="gallery-item" href="javascript:void(0)">
                   <div className="item_image">
+                  
                     <img
                       src={work.item_thumbnail}
                       id={`image-${work.item_id}`}
                       className="img-fluid w-100 d-block"
                       alt="GalleryImage"
                     />
+
+
                   </div>
                   <div className="desc_pic">
                     <div className="wdth_ttle">
@@ -126,10 +108,14 @@ const FeaturedWork = ({
                     </ul>
                   </div>
                 </a>
+
+                  </motion.div>
+
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

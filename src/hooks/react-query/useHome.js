@@ -24,7 +24,7 @@ const home = {
 };
 const siteInitialData = {
   video_banner:
-    "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/hero-home.mp4",
+    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/hero-home.mp4",
   video_banner_text:
     "Interactive,Web,Design,Digital,Marketing,SEO,Social,Media",
   home_typing_text:
@@ -41,14 +41,14 @@ const siteInitialData = {
       item_services: ["Development", "SEO", "Service", "Web Design"],
       item_url: "kline",
       item_thumbnail:
-        "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/bg.png",
+        "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/bg.png",
       item_logo:
-        "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/kline-logo.png",
+        "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/kline-logo.png",
     },
   ],
   banner_type: "video",
   image_banner:
-    "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/banner-bg-hero-1.jpg",
+    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/banner-bg-hero-1.jpg",
   about_section_pagination: "02/03",
   about_section_title: "ABOUT",
   about_section_description:
@@ -59,21 +59,21 @@ const siteInitialData = {
       item_title: "Photo title / Vail, Colorado",
       item_url: "photo-title-vail-colorado",
       item_thumbnail:
-        "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/GalleryImg1.png",
+        "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/GalleryImg1.png",
     },
   ],
   service_section_pagination: "03/03",
   about_section_short_title: "Adventure",
   service_section_title: "SERVICES",
   service_section_image:
-    "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/services-home-banner.jpg",
+    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/services-home-banner.jpg",
   service_items: [
     {
       item_id: 9,
       item_title: "Development",
       item_url: "development",
       item_thumbnail:
-        "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/development-icon.png",
+        "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/development-icon.png",
     },
   ],
   service_section_description:

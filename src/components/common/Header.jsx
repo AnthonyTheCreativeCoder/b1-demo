@@ -24,10 +24,12 @@ const Header = ({ header: { menu_items, logo }, err = null }) => {
   // Check if the current path is work details page
   // console.log("test"+typeof(headerData.menu_items));
 
-  const isWorkDetailsPage = location.pathname.startsWith("/works/");
+  const isWorkDetailsPage = location.pathname.startsWith("/content/");
+  // const isWorkDetailsPage = location.pathname.startsWith("/works/");
   return (
     <header
-      className={isWorkDetailsPage ? "work-details-header" : "other-header"}
+      className={isWorkDetailsPage ? "work-details-header" : "work-details-header"}
+      // className={isWorkDetailsPage ? "work-details-header" : "other-header"}
     >
       <div className="container-fluid">
         <div className="row align-items-center">

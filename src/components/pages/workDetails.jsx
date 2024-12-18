@@ -139,14 +139,14 @@ export default function WorkDetails() {
                 : workdetailsMobileGallery,
           }}
         />
-        <Testimonial
+        {/* <Testimonial
           testimonials={
             typeof work.work_details_page_testimonials === "object" &&
             work?.work_details_page_testimonials.length > 0
               ? work?.work_details_page_testimonials
               : lorem.testimonials
           }
-        />
+        /> */}
       </LazyLoadComponent>
       <section className="appraoch_area pt-5 pb-5">
         <div className="container-fluid">

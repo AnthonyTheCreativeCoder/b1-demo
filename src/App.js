@@ -3,6 +3,10 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+
+// import { AnimatePresence } from "framer-motion";
+
+
 import "./styles/common-style.css";
 import {
   BrowserRouter as Router,
@@ -15,6 +19,8 @@ import "aos/dist/aos.css";
 import CustomCursor from "./components/common/ui-snippets/CustomCursor";
 import ScrollToTop from "./components/common/adjustments/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
+import ImageGrid from "./components/pages/ImageGrid";
+import PageContent from "./components/pages/PageContent";
 import About from "./components/pages/About";
 import ServiceDetails from "./components/pages/ServiceDetails";
 import Contact from "./components/pages/Contact";
@@ -75,6 +81,9 @@ function AppContent() {
             <Route path="/services" element={<Service />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/imagegrid" element={<ImageGrid />} />
+            <Route path="/content" element={<PageContent />} />
+
           </Routes>
         </AnimatePresence>
       </main>
@@ -85,3 +94,5 @@ function AppContent() {
 }
 
 export default App;
+
+
