@@ -20,7 +20,7 @@ class WordPressService {
 
   // Function to handle GET requests
   async fetchData(endpoint) {
-    // console.log("endpoint "+endpoint);
+    console.log("endpoint "+endpoint);
     try {
       const response = await this.axiosInstance.get(endpoint);
       console.log("response == ")
@@ -36,6 +36,7 @@ class WordPressService {
   // Handle POST requests
   async postData(endpoint, body) {
     try {
+      console.log("== endpoint == " + endpoint);
       const response = await this.axiosInstance.post(endpoint, body);
       return response.data;
     } catch (error) {

@@ -75,21 +75,12 @@ const siteInitialData = {
   featured_work_item: "yes",
 };
 
-// const useWorkDetails = (query) => {
-//   const workDetailsQuery = useQuery({
-//     // queryKey: ["site-work-details", query],
-//     queryFn: () =>
-//       WordPressService.fetchData(`site-work-details/${query}`).then(
-//         (res) => res
-//       ),
-//     initialData: siteInitialData,
-//   });
 
 const useWorkDetails = (query) => {
   const workDetailsQuery = useQuery({
     queryKey: ['site-work-details-another', query],  // queryKey should be an array
     queryFn: () =>
-      WordPressService.fetchData(`site-work-details-updated/${query}`).then(
+      WordPressService.fetchData(`site-work-details-updated-sec/${query}?_=${Date.now()}`).then(
         (res) => res
       ),
       initialData: siteInitialData,
@@ -97,10 +88,4 @@ const useWorkDetails = (query) => {
 
   return workDetailsQuery;
 };
-  // console.log("Response");
-  // console.log(workDetailsQuery);
-
-  
-//   return workDetailsQuery;
-// };
 export default useWorkDetails;

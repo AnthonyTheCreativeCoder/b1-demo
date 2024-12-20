@@ -30,7 +30,7 @@ const siteInitialData = {
   ],
   banner_title: "Work",
   image_banner:
-    "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/hero-image.png",
+    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/hero-image.png",
   featured_work_section_pagination: "01/02",
   featured_work_section_title: "FEATURED WORK",
   featured_work_section_description:
