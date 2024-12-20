@@ -58,11 +58,13 @@ const siteInitialData = {
 };
 const useService = () => {
   const serviceQuery = useQuery({
-    queryKey: ["site-service"],
+    queryKey: ["site-service-page"],
     queryFn: () =>
-      WordPressService.fetchData("site-service-page").then((res) => res),
-    initialData: siteInitialData,
+      WordPressService.fetchData(`site-service-page?_=${Date.now()}`).then((res) => res),
+    // initialData: siteInitialData,
   });
+    console.log(serviceQuery);
   return serviceQuery;
+
 };
 export default useService;

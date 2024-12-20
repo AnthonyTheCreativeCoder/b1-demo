@@ -1,35 +1,26 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import HeroSection from "../common/ui-sections/workHeroSection";
 import ArrowBounce from "../common/ui-sections/ArrowBounce";
 import FeaturedWork from "../common/ui-sections/FeaturedWork";
-import useWorks from "../../hooks/react-query/useWorks";
+import useService from "../../hooks/react-query/useService";
+import useWorkDetails from "../../hooks/react-query/useWorkDetails";
+import { motion } from "framer-motion";
 
 const ServiceDetails = () => {
-  const { data, error, isLoading } = useWorks();
-  const works = data || {};  // Default to an empty object if data is undefined
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data: {error.message}</p>;
+  const { id } = useParams();
+  const { data, error } = useWorkDetails({ id });
+  const work = data;
 
   return (
-    <>
-      <HeroSection
-        banner={{
-          image: works.image_banner ?? "",  // Destructure with defaults
-          title: works.banner_title ?? "",
-          description: works.banner_description ?? "",
-        }}
-      />
-      <ArrowBounce />
-      <FeaturedWork
-        features={{
-          pagination: works.featured_work_section_pagination ?? "",
-          title: works.featured_work_section_title ?? "",
-          short_title: works.featured_work_section_short_title ?? "",
-          description: works.featured_work_section_description ?? "",
-          works: works.featured_work_items ?? [],  // Default to an empty array
-        }}
-      />
-    </>
+     <motion.div
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      
+     
+       </motion.div>
+   
   );
 };
 
