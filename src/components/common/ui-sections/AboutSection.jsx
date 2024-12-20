@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 
 const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
-  console.log(galleryItems)
+ 
   return (
     <div id="next-section">
       <div className="col-12 ft_msk_left">
@@ -60,36 +60,63 @@ const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
                  
 
                 <div className={`col-md-6 left_module`}>
-                <Link to={"/service-details"}>
-                  {galleryItems.slice(0, 3).map((item, index) => (
-                    <div key={index} className="glry_hm" data-aos="fade-up">
-                      <div className="glry_hm_image">
+               
+                  
+
+
+
+
+
+                        {galleryItems.length > 0 ? (
+                        galleryItems.slice(0,3).map((item, index) => (
+                          <Link to={`/service-details?id=${item.id}`} key={index}>
+                        <div key={index} className="glry_hm" data-aos="fade-up">
+                        <div className="glry_hm_image">
                         <img
-                          className="module-gallery-image"
-                          src={item.item_thumbnail}
-                          alt={item.item_url}
+                        className="module-gallery-image"
+                        src={item.featured_image}  // Use the correct property for the image
+                        alt={item.title}  // Use the correct property for the title
                         />
-                      </div>
-                      <h5>{item.item_title}</h5>
-                    </div>
-                  ))}
-                  </Link>
+                        </div>
+                        <h5>{item.title}</h5>  
+                        </div>
+                         </Link>
+                        ))
+                        ) : (
+                        <p>No gallery items available</p>
+                        )}
+
+
+
+
+
+
+
+
+
+
+
+                 
                 </div>
 
                 <div className={`col-md-5 rt_module`}>
                 <Link to={"/service-details"}>
-                  {galleryItems.slice(3).map((item, index) => (
-                    <div key={index} className="glry_hm" data-aos="fade-up">
-                      <div className="glry_hm_image">
+                   {galleryItems.length > 0 ? (
+                        galleryItems.slice(0,3).map((item, index) => (
+                        <div key={index} className="glry_hm" data-aos="fade-up">
+                        <div className="glry_hm_image">
                         <img
-                          className="module-gallery-image"
-                          src={item.item_thumbnail}
-                          alt={item.item_url}
+                        className="module-gallery-image"
+                        src={item.featured_image}  // Use the correct property for the image
+                        alt={item.title}  // Use the correct property for the title
                         />
-                      </div>
-                      <h5>{item.item_title}</h5>
-                    </div>
-                  ))}
+                        </div>
+                        <h5>{item.title}</h5>  
+                        </div>
+                        ))
+                        ) : (
+                        <p>No gallery items available</p>
+                        )}
                   </Link>
                 </div>
 
@@ -103,19 +130,6 @@ const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
   );
 };
 
-// AboutSection.propTypes = {
-//   paginationText: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   introText: PropTypes.string.isRequired,
-//   galleryItems: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       colSize: PropTypes.number.isRequired,
-//       className: PropTypes.string.isRequired,
-//       imageSrc: PropTypes.string.isRequired,
-//       altText: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
+
 
 export default AboutSection;
