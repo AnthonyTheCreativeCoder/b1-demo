@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Typewriter from "../animations/Typewriter";
 import "../../../styles/gallery.css";
 import MaskWhite from "../../../assets/images/mask-white.svg";
@@ -10,23 +10,17 @@ import "../../../styles/other-work.css";
 const FeaturedWork = ({
   features: { pagination, title, short_title, description, works },
 }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
-  const navigateWithAnimation = (work) => {
-    const imageElement = document.getElementById(`image-${work.item_id}`);
-    if (!imageElement) {
-      console.warn(`Image element not found for ID: image-${work.item_id}`);
-      return;
-    }
-  };
 
-   const handleImageClick = (id, url) => {
-    // console.log("id is"+id);
-    // console.log("id is"+url);
-      url = url ? url.replace(/\s+/g, "-") : "";
-      const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
-      // navigate(`/content${queryString}`);
-      navigate(`/content${queryString}`, { state: { selectedImageId: id } });
-      // navigate(`/works/${url}`, { state: { selectedImageId: id } });
+  const handleImageClick = (work, thumbnail,post_video) => {
+    setSelectedImage(work); // Set the selected image for fullscreen zoom
+    setTimeout(() => {
+      // Redirect to the details page after animation
+      const url = work.item_title.replace(/\s+/g, "-"); // URL-friendly title
+      const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
+      navigate(`/content${queryString}`, { state: { selectedImageId: work.item_id ,selectedImage:thumbnail, postVideo:post_video} });
+    }, 100); // Wait for the animation duration (adjust to match the transition time)
   };
 
   return (
@@ -68,55 +62,74 @@ const FeaturedWork = ({
         <div className="container-fluid">
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4 gallery-grid">
             {works.map((work) => (
-              <div className="col box-gallery" data-aos="fade-up" key={work.id}>
-                <div className="more_btn">
-                  <a onClick={() => handleImageClick(work.item_id, work.item_title)}>
-                    <img src={EllipseMore} alt="ellipseIcon" />
-                    <h4>More</h4>
-                  </a>
-                </div>
-                  <motion.div
+              <div className="col box-gallery" key={work.id}>
+                <motion.div
                   key={work.item_id}
-                  layoutId={`image-${work.item_id}`} // Shared layout id for image animation
-                  onClick={() => handleImageClick(work.item_id, work.item_title)}
+                  layoutId={`image-${work.item_id}`}
+                  onClick={() => handleImageClick(work, work.item_thumbnail,work.post_video)} // Handle zoom and redirect
                   style={{ cursor: "pointer" }}
-                  >
-                <a className="gallery-item" href="javascript:void(0)">
-                  <div className="item_image">
-                  
-                    <img
-                      src={work.item_thumbnail}
-                      id={`image-${work.item_id}`}
-                      className="img-fluid w-100 d-block"
-                      alt="GalleryImage"
-                    />
-
-
-                  </div>
-                  <div className="desc_pic">
-                    <div className="wdth_ttle">
-                      <h2
-                        dangerouslySetInnerHTML={{ __html: work.item_title }}
+                >
+                  <div className="gallery-item">
+                    <div className="item_image">
+                      <img
+                        src={work.item_thumbnail}
+                        className="img-fluid w-100 d-block"
+                        alt="GalleryImage"
                       />
                     </div>
-                    <ul className="list-group list-group-horizontal">
-                      {work.item_services.map((item, idx) => (
-                        <li className="list-group-item list-group-item-dark" key={idx}>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="desc_pic">
+                      <div className="wdth_ttle">
+                        <h2
+                          dangerouslySetInnerHTML={{ __html: work.item_title }}
+                        />
+                      </div>
+                      <ul className="list-group list-group-horizontal">
+                        {work.item_services.map((item, idx) => (
+                          <li
+                            className="list-group-item list-group-item-dark"
+                            key={idx}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </a>
-
-                  </motion.div>
-
+                </motion.div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
+
+      {/* Fullscreen image overlay */}
+      {/*<AnimatePresence>
+      {selectedImage && (
+      <motion.div
+      key="fullscreen-image"
+      layoutId={`image-${selectedImage.item_id}`}
+      className="fullscreen-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeInOut",
+        exit: { duration: 0.8, delay: 2 }, // Delay before exit
+      }}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 1000,
+        background: `url(${selectedImage.item_thumbnail}) center center / cover no-repeat`,
+      }}
+      />
+      )}
+      </AnimatePresence>*/}
+
     </section>
   );
 };

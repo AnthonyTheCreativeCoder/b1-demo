@@ -1,13 +1,38 @@
-import React from "react";
-// import PropTypes from 'prop-types';
+import React, { startTransition, useState } from "react";
+// import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "../animations/Typewriter";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../../styles/WorkHome.css";
 import "../../../styles/overview.css";
 import "../../../styles/breadcrumb.css";
 import maskWhite from "../../../assets/images/mask-white.svg";
 
 const WorkSection = ({ title, paginationText, projects, description }) => {
+  const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // const handleImageClick = (id, url) => {
+  //   url = url ? url.replace(/\s+/g, "-") : "";
+  //   const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
+
+  //   // Wrap navigate with startTransition to avoid blocking UI
+  //   startTransition(() => {
+  //     navigate(`/content${queryString}`, { state: { selectedImageId: id } });
+  //   });
+  // };
+
+   const handleImageClick = (work, thumbnail, post_video) => {
+    setSelectedImage(work); // Set the selected image for fullscreen zoom
+    setTimeout(() => {
+      // Redirect to the details page after animation
+      const url = work.item_title.replace(/\s+/g, "-"); // URL-friendly title
+      const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
+      navigate(`/content${queryString}`, { state: { selectedImageId: work.item_id , selectedImage:thumbnail, postVideo:post_video} });
+    }, 800); // Wait for the animation duration (adjust to match the transition time)
+  };
+
+
   return (
     <section className="home-page-work-wrapper" id="work-section">
       <div className="container-fluid">
@@ -23,12 +48,6 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
           </div>
         </div>
         <h2 className="home-para-content">
-          {/* <span
-            className="typewrite"
-            data-period="2000"
-            data-type='["Our work sem sollicitudin lacus, ut interdum tellus elit sed risus."]'
-            style={{ '--speed': '100' }}
-          ></span> */}
           <Typewriter textArray={[description]} period={2000} speed={100} />
         </h2>
         <div className="small-container-fluid">
@@ -36,7 +55,14 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
             <div className="main-banner-wrapper" data-aos="fade-up" key={index}>
               <div className="abs_full">
                 <div className="pos_full">
-                  <a href="javascript:void(0)">
+                  <motion.div
+                    key={project.item_id}
+                    layoutId={`image-${project.item_id}`} // Shared layout id for image animation
+                    onClick={() =>
+                      handleImageClick(project, project.item_thumbnail, project.post_video)
+                    }
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       className="main-img"
                       data-aos="fade-up"
@@ -57,14 +83,15 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
                         <img src={project.item_logo} alt={project.item_title} />
                         <ul className="list-group list-group-horizontal">
                           {project.item_services.length > 0 &&
-                            project.item_services.map((item) => (
-                              <li className="list-group-item">{item}</li>
+                            project.item_services.map((item, i) => (
+                              <li className="list-group-item" key={i}>
+                                {item}
+                              </li>
                             ))}
-                          {/* <li>{project.item_content}</li> */}
                         </ul>
                       </div>
                     </div>
-                  </a>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -72,27 +99,36 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
         </div>
         <div className="pb-200">
           <div className="white_btn_black border-animation">
-            {/* <a href="#">View all work</a> */}
             <Link to="/works">View all work</Link>
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            key="fullscreen-image"
+            layoutId={`image-${selectedImage.item_id}`}
+            className="fullscreen-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              zIndex: 1000,
+              background: `url(${selectedImage.item_thumbnail}) center center / cover no-repeat`,
+            }}
+          />
+        )}
+      </AnimatePresence>
+
     </section>
   );
 };
-
-// WorkSection.propTypes = {
-//   paginationText: PropTypes.string.isRequired,
-//   projects: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       link: PropTypes.string.isRequired,
-//       imageSrc: PropTypes.string.isRequired,
-//       altText: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//       logoSrc: PropTypes.string.isRequired,
-//       description: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
 
 export default WorkSection;

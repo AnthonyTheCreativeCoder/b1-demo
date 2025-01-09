@@ -1,0 +1,49 @@
+/***************/
+
+.skeleton {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+.skeleton.hero-image {
+  height: 200px;
+  width: 100%;
+}
+
+.skeleton.hero-title {
+  height: 40px;
+  width: 60%;
+  margin-top: 20px;
+}
+
+.skeleton.hero-description {
+  height: 20px;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.skeleton.about-title,
+.skeleton.about-intro-text,
+.skeleton.gallery-items {
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
+}
+
+
+
+
+/***************/

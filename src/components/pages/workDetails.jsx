@@ -65,17 +65,14 @@ export default function WorkDetails() {
   const { data, error } = useWorkDetails({ id });
   const work = data;
   return (
-    <motion.div
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
+    <div data-barba="container" data-barba-namespace="home">
       <WorkDetailsBanner
         banner={
           work?.work_details_page_banner
             ? work?.work_details_page_banner
             : WorkDetailsHero
         }
-        title={work?.post_title ? work?.post_title : "Kline"}
+        title={work?.post_title ? work?.post_title : ""}
       />
       <BreadcrumbBanner
         services={
@@ -205,6 +202,6 @@ export default function WorkDetails() {
             : lorem.moreWork.works
         }
       />
-    </motion.div>
+  </div>
   );
 }

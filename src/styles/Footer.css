@@ -1,256 +1,255 @@
-
 /**** Footer Styles Start ****/
 footer {
-    background-color: #0f0f0f;
-    padding: 200px 0 150px;
-    background-image: url('../assets/images/footer-bg.webp');
-    background-repeat: repeat;
-    background-size: cover;
-  }
-  .brdr_pddng {
-    padding: 150px 25px 200px;
-    border-radius: 2px;
-    border: 2px solid transparent;
-    /* background: rgba(0, 0, 0, 0.01);
+  background-color: #0f0f0f;
+  padding: 200px 0 150px;
+  background-image: url("../assets/images/footer-bg.webp");
+  background-repeat: repeat;
+  background-size: cover;
+}
+footer .container-fluid.brdr_pddng {
+  width: 92%;
+}
+.brdr_pddng {
+  padding: 150px 25px 200px;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  /* background: rgba(0, 0, 0, 0.01);
     backdrop-filter: blur(2.5px); */
-    border-radius: 4px;
+  border-radius: 4px;
+}
+
+footer h6 {
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  font-style: normal;
+  font-family: "elzabold";
+  font-weight: 700;
+  line-height: 140%; /* 35px */
+  letter-spacing: 0.5px;
+  margin-bottom: 35px;
+}
+
+.lets_connct {
+  font-family: "elzablack";
+  font-size: 100px;
+  font-style: normal;
+  line-height: 120%; /* 120px */
+  text-align: center;
+}
+
+.profile_ftr {
+  width: 167px;
+  height: 167px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: -84px;
+  z-index: 1;
+}
+
+.profile_ftr img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer_social {
+  padding-top: 120px;
+  padding-bottom: 0px;
+}
+
+footer ul li a {
+  text-decoration: none;
+}
+
+.footer_social ul {
+  gap: 90px;
+}
+footer .typewrite > .wrap::after {
+  background-color: #fff;
+  height: 80px;
+  vertical-align: middle;
+}
+@media (min-width: 1600px) {
+  .footer_social ul {
+    gap: 10%;
   }
-  
-  footer h6 {
-    color: #fff;
-    text-align: center;
-    font-size: 25px;
-    font-style: normal;
-    font-family: "elzabold";
-    font-weight: 700;
-    line-height: 140%; /* 35px */
-    letter-spacing: 0.5px;
-    margin-bottom: 35px;
+}
+
+/*** Footer Border Gradient Start */
+.button-wrapper {
+  position: relative;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.button_social {
+  display: block;
+  font-family: "elzabold";
+  font-size: 14px;
+  font-style: normal;
+  line-height: 150%; /* 21px */
+  text-transform: uppercase;
+  padding: 50px 70px;
+  color: #888888;
+  border-radius: 4px;
+  border: 0px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  background: transparent;
+}
+.button_social:hover {
+  background-color: black;
+  color: white;
+}
+.button_social.active {
+  background-color: black;
+  color: white;
+}
+.button-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  background: transparent;
+  background-size: 600% 600%;
+  border-radius: 4px;
+  z-index: 1;
+  transform: translate(-3px, -3px);
+  transition: filter 1s ease-in;
+  animation: AnimateBorder 4s ease infinite;
+  -webkit-animation: AnimateBorder 4s ease infinite;
+  -moz-animation: AnimateBorder 4s ease infinite;
+}
+.button_social.active + .button-bg {
+  background: linear-gradient(
+    70deg,
+    #485ed8 22%,
+    #485ed8 30.43%,
+    #ff8038 100%,
+    #ff8038 100%
+  );
+  transition: filter 0.4s ease-in;
+  animation: AnimateBorder 4s ease infinite;
+  -webkit-animation: AnimateBorder 4s ease infinite;
+  -moz-animation: AnimateBorder 4s ease infinite;
+}
+
+.button_social:hover + .button-bg {
+  background: linear-gradient(
+    70deg,
+    #485ed8 22%,
+    #485ed8 30.43%,
+    #ff8038 100%,
+    #ff8038 100%
+  );
+  transition: filter 0.4s ease-in;
+  animation: AnimateBorder 4s ease infinite;
+  -webkit-animation: AnimateBorder 4s ease infinite;
+  -moz-animation: AnimateBorder 4s ease infinite;
+}
+
+@-webkit-keyframes AnimateBorder {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  .lets_connct {
-    font-family: "elzablack";
-    font-size: 100px;
-    font-style: normal;
-    line-height: 120%; /* 120px */
-    text-align: center;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  .profile_ftr {
-    width: 167px;
-    height: 167px;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: -84px;
-    z-index: 1;
+  100% {
+    background-position: 0% 50%;
   }
-  
-  .profile_ftr img {
-    width: 100%;
-    display: block;
-    height: 100%;
-    object-fit: cover;
+}
+@-moz-keyframes AnimateBorder {
+  0% {
+    background-position: 0% 50%;
   }
-  
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes AnimateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*** Footer Gradient End */
+@media (max-width: 1200px) {
+  footer {
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
   .footer_social {
-    padding-top: 120px;
     padding-bottom: 0px;
   }
-  
-  footer ul li a {
-    text-decoration: none;
+  .brdr_pddng {
+    max-width: 95% !important;
   }
-  
   .footer_social ul {
-    gap: 90px;
-  }
-  footer .typewrite > .wrap::after {
-    background-color: #fff;
-    height: 80px;
-    vertical-align: middle;
-  }
-  @media (min-width: 1600px) {
-    .footer_social ul {
-      gap: 10%;
-    }
-  }
-  
-  /*** Footer Border Gradient Start */
-  .button-wrapper {
-    position: relative;
-    display: block;
-    margin: auto;
-    text-align: center;
+    gap: 10px;
   }
   .button_social {
-    display: block;
-    font-family: "elzabold";
-    font-size: 14px;
-    font-style: normal;
-    line-height: 150%; /* 21px */
-    text-transform: uppercase;
-    padding: 50px 70px;
-    color: #888888;
-    border-radius: 4px;
-    border: 0px;
-    cursor: pointer;
-    z-index: 2;
-    position: relative;
-    background: transparent;
+    padding: 30px 40px;
   }
-  .button_social:hover {
-    background-color: black;
-    color: white;
+  .lets_connct {
+    font-size: 70px;
   }
-  .button_social.active {
-    background-color: black;
-    color: white;
+}
+
+@media (max-width: 767px) {
+  .button-wrapper {
+    min-width: 250px;
   }
-  .button-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(100% + 6px);
-    height: calc(100% + 6px);
-    background: transparent;
-    background-size: 600% 600%;
-    border-radius: 4px;
-    z-index: 1;
-    transform: translate(-3px, -3px);
-    transition: filter 1s ease-in;
-    animation: AnimateBorder 4s ease infinite;
-    -webkit-animation: AnimateBorder 4s ease infinite;
-    -moz-animation: AnimateBorder 4s ease infinite;
+  .lets_connct {
+    font-size: 60px;
   }
-  .button_social.active + .button-bg {
-    background: linear-gradient(
-      70deg,
-      #485ed8 22%,
-      #485ed8 30.43%,
-      #ff8038 100%,
-      #ff8038 100%
-    );
-    transition: filter 0.4s ease-in;
-    animation: AnimateBorder 4s ease infinite;
-    -webkit-animation: AnimateBorder 4s ease infinite;
-    -moz-animation: AnimateBorder 4s ease infinite;
+  .brdr_pddng {
+    padding: 100px 25px;
+    max-width: 92%;
   }
-  
-  .button_social:hover + .button-bg {
-    background: linear-gradient(
-      70deg,
-      #485ed8 22%,
-      #485ed8 30.43%,
-      #ff8038 100%,
-      #ff8038 100%
-    );
-    transition: filter 0.4s ease-in;
-    animation: AnimateBorder 4s ease infinite;
-    -webkit-animation: AnimateBorder 4s ease infinite;
-    -moz-animation: AnimateBorder 4s ease infinite;
+  .footer_social ul {
+    gap: 0;
   }
-  
-  @-webkit-keyframes AnimateBorder {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  .footer_social ul {
+    display: flex !important;
+    margin: auto !important;
+    flex-direction: column;
+    gap: 20px;
   }
-  @-moz-keyframes AnimateBorder {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  .button_social {
+    padding: 30px 70px;
   }
-  @keyframes AnimateBorder {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  footer {
+    padding-bottom: 80px;
+    padding-top: 80px;
   }
-  
-  /*** Footer Gradient End */
-  @media (max-width: 1200px) {
-    
-    footer {
-      padding-bottom: 100px;
-      padding-top: 100px;
-    }
-    .footer_social {
-      padding-bottom: 0px;
-    }
-    .brdr_pddng {
-      max-width: 95% !important;
-    }
-    .footer_social ul {
-      gap: 10px;
-    }
-    .button_social {
-      padding: 30px 40px;
-    }
-    .lets_connct {
-      font-size: 70px;
-  }
-  }
-  @media (max-width: 1025px) {
-  header {
-    padding: 30px 0;
-  }
-  }
-  
-  @media (max-width: 767px) {
-    .button-wrapper {
-      min-width: 250px;
-    }
-    .lets_connct {
-      font-size: 60px;
-    }
-    .brdr_pddng {
-      padding: 100px 25px;
-      max-width: 92%;
-    }
-    .footer_social ul {
-      gap: 0;
-    }
-    .footer_social ul {
-      display: flex !important;
-      margin: auto !important;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .button_social {
-      padding: 30px 70px;
-    }
-    footer {
-      padding-bottom: 80px;
-      padding-top: 80px;
-    }
-  }
-  @media (max-width: 575px) {
+
+}
+@media (max-width: 575px) {
   .lets_connct {
     font-size: 44px;
   }
-  }
-  
-  
-  /*** Footer Styles End */
+  footer h6 {
+    font-size: 23px;
+}
+}
+
+/*** Footer Styles End */

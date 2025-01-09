@@ -8,7 +8,7 @@ const ProjectGallery = ({ projects }) => {
             <a href="#">
               <div className="container-fluid row py-5 align-items-center">
                 <div className="row">
-                  <div className="col-lg-11 col-sm-11">
+                  <div className="col-lg-11 col-sm-11 proIconArea">
                     <img className="pro_icon" src={project.icon} alt={project.name} />
                     <h4 className="text-start font-bld">{project.name}</h4>
                   </div>

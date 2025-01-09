@@ -80,6 +80,9 @@
 .slider_upper_area .challange_box {
   width: 100%;
 }
+.overview_area {
+  padding: 100px 0 !important;
+}
 }
 
 @media (max-width: 575px) {
@@ -93,7 +96,7 @@
     padding: 100px 0;
   }
   .overview_area {
-    padding: 100px 0;
+    padding: 60px 0 !important;
   }
   .approach-gap {
     gap: 25px;

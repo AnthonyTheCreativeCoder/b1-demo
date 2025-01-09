@@ -17,23 +17,49 @@ const Footer = ({ footer, err = null }) => {
   ];
   const location = useLocation();
   const isContactPage = location.pathname.startsWith("/contact");
+  // useEffect(() => {
+  //   document.querySelectorAll(".border-animation").forEach((item) => {
+  //     const span = document.createElement("span");
+  //     span.className = "border-animation-inner";
+  //     item.insertBefore(span, item.firstChild);
+  //   });
+
+  //   document.querySelectorAll(".button_social").forEach((item) => {
+  //     const span = document.createElement("span");
+  //     span.className = "button-bg";
+  //     item.insertAdjacentElement("afterend", span);
+  //   });
+  // }, [location.pathname]);
+
+
   useEffect(() => {
+  const observer = new MutationObserver(() => {
     document.querySelectorAll(".border-animation").forEach((item) => {
-      const span = document.createElement("span");
-      span.className = "border-animation-inner";
-      item.insertBefore(span, item.firstChild);
+      if (!item.querySelector(".border-animation-inner")) {
+        const span = document.createElement("span");
+        span.className = "border-animation-inner";
+        item.insertBefore(span, item.firstChild);
+      }
     });
 
     document.querySelectorAll(".button_social").forEach((item) => {
-      const span = document.createElement("span");
-      span.className = "button-bg";
-      item.insertAdjacentElement("afterend", span);
+      if (!item.nextElementSibling || !item.nextElementSibling.classList.contains("button-bg")) {
+        const span = document.createElement("span");
+        span.className = "button-bg";
+        item.insertAdjacentElement("afterend", span);
+      }
     });
-  }, []);
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  return () => observer.disconnect();
+}, [location.pathname]);
+  
 
   return (
     <footer id="footer-section">
-      <section id="contact-section">
+      <section id="contact-section-footer">
         {!isContactPage && (
           <div className="container-fluid border-animation brdr_pddng position-relative">
             <div className="row">
@@ -85,7 +111,7 @@ const Footer = ({ footer, err = null }) => {
           <a
             target="_blank"
             rel="noreferrer"
-            className={`button_social ${index === 0 ? "active" : ""}`}
+            className="button_social"
             href={url} // Dynamic hyperlink
           >
             {title} {/* Static or unchanged */}

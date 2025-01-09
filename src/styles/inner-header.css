@@ -7,13 +7,8 @@
     padding: 3em 0;
     z-index: 99;
 }
-
-/*.other-header{
-    background: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 3em 0;
-    z-index: 99;
-}*/
+@media(max-width: 991px){
+    .work-details-header{
+        padding: 30px 0;
+    }
+}

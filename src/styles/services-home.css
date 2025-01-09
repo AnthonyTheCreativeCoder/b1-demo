@@ -111,6 +111,7 @@
 .service_area_home .project_details a {
   text-decoration: none;
   transition: background-image 0.5s linear;
+  pointer-events: none;
 }
 .service_area_home .pro-details-row {
   border-bottom: 1px solid #4f4f4f;
@@ -119,6 +120,7 @@
   background: transparent;
   position: relative;
   z-index: 1;
+  padding: 0 15px;
 }
 
 #services-section.service_area_home .pro-details-row:last-child {
@@ -171,7 +173,7 @@
   font-family: "elzablack";
   font-size: 25px;
   line-height: 1.2;
-  padding-left: 30px;
+  padding-left: 0;
 }
 
 .service_area_home .btn_cmn {
@@ -219,7 +221,7 @@
 
 .service_area_home .pro_icon {
   position: absolute;
-  left: 0px;
+  left: -60px;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -244,6 +246,10 @@
   .service_area_home .head_head h2 {
     font-size: 80px;
   }
+  .service_area_home .pro-details-row .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
 }
 @media (max-width: 1025px) {
   .service_area_home .project_details {
@@ -258,11 +264,15 @@
   }
 }
 
+.proIconArea{
+  position: relative;
+}
 /**** Other work Styles End ****/
 
-@media (min-width: 1366px) {
+@media (min-width: 1500px) {
+  
   .service_area_home .pro_icon {
-    left: 0px;
+    left: -60px;
     max-width: 50px;
   }
   .service_area_home .pro-details-row h4.font-bld {
@@ -274,18 +284,22 @@
   .service_area_home .container-splash {
     left: 2%;
   }
-  .service_area_home .pro_icon {
-    left: 20px;
-  }
+
   .service_area_home .pro-details-row h4.font-bld {
     padding-left: 0px;
   }
 }
 @media (max-width: 1025px) {
   .service_area_home .pro-details-row h4.font-bld {
-    padding-left: 70px;
+    padding-left: 40px;
   }
+  .service_area_home .pro_icon {
+    left: -20px;
+    max-width: 40px;
 }
+
+}
+
 @media (max-width: 767px) {
   .service_area_home .head_head h2 {
     font-size: 60px;
@@ -313,7 +327,7 @@
   .service_area_home .pro-details-row h4.font-bld {
     font-size: 20px;
     margin-bottom: 0;
-    padding-left: 45px;
+    padding-left: 35px;
   }
   .service_area_home .pro-details-row .py-5 {
     padding-top: 1.5rem !important;
@@ -328,10 +342,6 @@
 }
 
 @media (min-width: 1600px) {
-  .service_area_home .pro_icon {
-    left: 20px;
-    max-width: 60px;
-  }
   .service_area_home .pro-details-row h4.font-bld {
     padding-left: 0;
   }
@@ -344,7 +354,7 @@
 }
 @media (max-width: 767px) {
   .service_area_home .pro_icon {
-    left: 15px;
+    left: 0px;
     max-width: 30px;
   }
   .service_area_home .container-splash {
@@ -372,4 +382,5 @@
     top: 50%;
     transform: translateY(-50%);
   }
+ 
 }

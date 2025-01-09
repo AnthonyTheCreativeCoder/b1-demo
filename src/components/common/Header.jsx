@@ -24,12 +24,11 @@ const Header = ({ header: { menu_items, logo }, err = null }) => {
   // Check if the current path is work details page
   // console.log("test"+typeof(headerData.menu_items));
 
-  const isWorkDetailsPage = location.pathname.startsWith("/content/");
+const isWorkDetailsPage =  location.pathname.startsWith("/content") || location.pathname.startsWith("/works") || location.pathname.startsWith("/service-details") || location.pathname.startsWith("/services");
   // const isWorkDetailsPage = location.pathname.startsWith("/works/");
   return (
     <header
-      className={isWorkDetailsPage ? "work-details-header" : "work-details-header"}
-      // className={isWorkDetailsPage ? "work-details-header" : "other-header"}
+      className={isWorkDetailsPage ? "work-details-header" : "other-header"}
     >
       <div className="container-fluid">
         <div className="row align-items-center">
@@ -53,7 +52,11 @@ const Header = ({ header: { menu_items, logo }, err = null }) => {
                 // aria-expanded="false"
                 // aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                 <span  className={
+              toggleShow ? "navbar-toggler-icon crossIcon" : "navbar-toggler-icon"
+            }>
+               <span></span>
+            </span>
               </button>
               <div className="collapse navbar-collapse justify-content-end desktop-header">
                 <ul className="d-flex navbar-nav">

@@ -4,12 +4,11 @@ import ArrowBounceInner from "./ArrowBounceInner";
 import { motion } from "framer-motion";
 
 const WorkDetailsBanner = ({ banner, title }) => {
-  console.log("Banner => "+banner);
+  // console.log("Banner => "+banner);
   const [showOverlay, setShowOverlay] = useState(true);
   useEffect(() => {
     // Scroll to top when the component mounts
     // window.scrollTo({ top: 0, behavior: 'instant' });
-
     // Hide the overlay after 3 seconds (adjust as needed)
     const timer = setTimeout(() => {
       setShowOverlay(false);

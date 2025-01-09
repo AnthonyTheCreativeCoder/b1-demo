@@ -8,7 +8,7 @@
   border-radius: 20px;
   padding: 18px 7px 18px;
   margin: 0 auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); */
   border: 1px solid transparent;
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
@@ -42,13 +42,7 @@
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-}
-
-@media (max-width: 767px) {
-
-.arrow_down_area {
-  padding: 1em 0 4em;
-}
+  z-index: 1;
 }
 
 /*** bounce animation next styles End */

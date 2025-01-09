@@ -1,44 +1,154 @@
-import React from "react";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import ArrowRight from "../../../assets/images/arrow-right.svg";
+
+// const ProjectDetails = ({ projects }) => {
+//   console.log("projects");
+//   console.log(projects);
+//   return (
+//     <div className="project_details workPageProjects">
+//   {projects.slice(0, 10).map((project, index) => (
+//     <div
+//       className={index === 0 ? "pro-details-row active" : "pro-details-row"}
+//       key={index}
+//     >
+//       <a href="javascript:void(0)">
+//         <div className="container-fluid row py-5 align-items-center">
+//           <div className="row">
+//             <div className="col-lg-5 col-sm-5 pro_leftContent">
+//               <h4 className="text-start font-bld">{project?.item_title}</h4>
+//             </div>
+//             <div className="col-lg-5 col-sm-6">
+//               <h4>{project?.item_content}</h4>
+//             </div>
+            
+//             <div className="col-lg-1 col-sm-1 right_arrow_section">
+//               <img src={ArrowRight} alt="RightArrowIcon" />
+//             </div>
+//           </div>
+//         </div>
+//       </a>
+//     </div>
+//   ))}
+//   <div className="container-fluid mt-5">
+//     <div className="row">
+//       <div className="col-12">
+       
+//         <Link to={"/services"} className="btn_cmn">
+//                 View more
+//         </Link>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+//   );
+// };
+
+// export default ProjectDetails;
+import React, { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import ArrowRight from "../../../assets/images/arrow-right.svg";
 
 const ProjectDetails = ({ projects }) => {
+  const [visibleProjects, setVisibleProjects] = useState([]); // Projects to display
+  const [page, setPage] = useState(1); // Current page for infinite scroll
+  const [infiniteScrollActive, setInfiniteScrollActive] = useState(false); // Controls infinite scroll activation
+  const itemsPerPage = 2; // Number of items per page
+
+  // Initial load of projects
+  useEffect(() => {
+    setVisibleProjects(projects.slice(0, itemsPerPage));
+  }, [projects]);
+
+  // Scroll detection
+  const handleScroll = () => {
+    if (!infiniteScrollActive) return;
+
+    const projectContainer = document.querySelector(".project_details");
+    if (projectContainer) {
+      const { bottom } = projectContainer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Load more when component bottom is near the viewport
+      if (bottom <= windowHeight + 50) {
+        loadMoreProjects();
+      }
+    }
+  };
+
+  // Load more projects
+  const loadMoreProjects = () => {
+    const startIndex = page * itemsPerPage; // Calculate start index
+    const endIndex = startIndex + itemsPerPage; // Calculate end index
+
+    // Append the next batch if there's data left
+    if (startIndex < projects.length) {
+      setVisibleProjects((prev) => [
+        ...prev,
+        ...projects.slice(startIndex, endIndex),
+      ]);
+      setPage((prevPage) => prevPage + 1); // Increment page for the next batch
+    }
+  };
+
+  // Handle "View More" button click
+  const handleViewMoreClick = () => {
+    setInfiniteScrollActive(true); // Activate infinite scroll
+    loadMoreProjects(); // Load the next batch
+  };
+
+  // Attach scroll event listener for infinite scrolling
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [infiniteScrollActive, page]);
+
   return (
     <div className="project_details workPageProjects">
-  {projects.slice(0, 10).map((project, index) => (
-    <div
-      className={index === 0 ? "pro-details-row active" : "pro-details-row"}
-      key={index}
-    >
-      <a href="javascript:void(0)">
-        <div className="container-fluid row py-5 align-items-center">
+      {visibleProjects.map((project, index) => (
+        <div
+          className={index === 0 ? "pro-details-row active" : "pro-details-row"}
+          key={index}
+        >
+          <a href="javascript:void(0)">
+            <div className="container-fluid row py-5 align-items-center">
+              <div className="row">
+                <div className="col-lg-5 col-sm-5 pro_leftContent">
+                  <h4 className="text-start font-bld">{project?.item_title}</h4>
+                </div>
+                <div className="col-lg-5 col-sm-6">
+                  <h4>{project?.item_content}</h4>
+                </div>
+                <div className="col-lg-1 col-sm-1 right_arrow_section">
+                  <img src={ArrowRight} alt="RightArrowIcon" />
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+      {!infiniteScrollActive && (
+        <div className="container-fluid mt-5">
           <div className="row">
-            <div className="col-lg-5 col-sm-5 pro_leftContent">
-              <h4 className="text-start font-bld">{project?.item_title}</h4>
-            </div>
-            <div className="col-lg-5 col-sm-6">
-              <h4>{project?.item_content}</h4>
-            </div>
-            
-            <div className="col-lg-1 col-sm-1 right_arrow_section">
-              <img src={ArrowRight} alt="RightArrowIcon" />
+            <div className="col-12">
+              <button
+                onClick={handleViewMoreClick}
+                className="btn_cmn"
+                style={{ cursor: "pointer" }}
+              >
+                View More
+              </button>
             </div>
           </div>
         </div>
-      </a>
+      )}
     </div>
-  ))}
-  <div className="container-fluid mt-5">
-    <div className="row">
-      <div className="col-12">
-        <a href="javascript:void(0)" className="btn_cmn">
-          View more
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
   );
 };
 
 export default ProjectDetails;
+
+

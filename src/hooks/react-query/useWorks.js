@@ -60,7 +60,7 @@ const useWorks = () => {
   const worksQuery = useQuery({
     queryKey: ["site-works"],
     queryFn: () =>
-      WordPressService.fetchData("site-work-page").then((res) => res),
+      WordPressService.fetchData(`site-work-page?_=${Date.now()}`).then((res) => res),
     initialData: siteInitialData,
   });
   return worksQuery;

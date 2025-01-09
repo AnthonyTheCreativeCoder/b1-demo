@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import WordPressService from "../../services/WordPressService";
 
 const siteInitialData = {
-  post_title: "Kline",
+  post_title: "",
   post_content: "Web Design / Development / SEO / Service / Service",
   featured_image:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/bg.png",
+    "http://localhost:3000/static/media/hero-image.18b345341ce5a7b24d5b.webp",
   item_services: ["Development", "SEO", "Service", "Web Design"],
   work_details_page_mobile_gallery: [
     "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/Kline-home-mobile-4.png",
@@ -76,16 +76,48 @@ const siteInitialData = {
 };
 
 
-const useWorkDetails = (query) => {
-  const workDetailsQuery = useQuery({
-    queryKey: ['site-work-details-another', query],  // queryKey should be an array
+// const useServiceDetails = (query) => {
+//   console.log("query ===== start");
+//   console.log(query);
+//   console.log("query ===== end");
+//   const serviceDetailsQuery = useQuery({
+//     queryKey: ['site-service-details-another', query],  // queryKey should be an array
+//     queryFn: () =>
+//       WordPressService.fetchData(`site-service-details-updated-sec/${query}?_=${Date.now()}`).then(
+//         (res) => res
+//       ),
+//       initialData: siteInitialData,
+//   });
+
+//   return serviceDetailsQuery;
+// };
+
+// export default useServiceDetails;
+
+const useServiceDetails = (query) => {
+  // console.log(" work details query");
+  // console.log(query)
+  // const workDetailsQuery = useQuery({
+  //   queryKey: ['site-work-details-another', query],  // queryKey should be an array
+  //   queryFn: () =>
+  //     WordPressService.fetchData(`site-work-details-updated-sec/${query}?_=${Date.now()}`).then(
+  //       (res) => res
+  //     ),
+  //     initialData: siteInitialData,
+  // });
+
+  // return workDetailsQuery;
+
+    const serviceDetailsQuery = useQuery({
+    queryKey: ['site-service-details-another', query],  // queryKey should be an array
     queryFn: () =>
-      WordPressService.fetchData(`site-work-details-updated-sec/${query}?_=${Date.now()}`).then(
+      WordPressService.fetchData(`site-service-details-updated-sec/${query}?_=${Date.now()}`).then(
         (res) => res
       ),
       initialData: siteInitialData,
   });
 
-  return workDetailsQuery;
+  return serviceDetailsQuery;
 };
-export default useWorkDetails;
+
+export default useServiceDetails;

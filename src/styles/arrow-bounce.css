@@ -39,6 +39,7 @@
   padding: 4em 0 9em;
   background-color: var(--body1);
 }
+
 @media (max-width: 1025px) {
 .arrow_down_area {
   padding: 1em 0 4em;

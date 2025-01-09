@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import "../../../styles/gallery.css";
 import EllipseMore from "../../../assets/images/ellipse-more.svg";
@@ -6,14 +6,21 @@ import SplashDetailsContainer from "../animations/splashAnime/SplashDetailsConta
 
 const MoreWork = ({ moreWorks }) => {
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
 
 const handleImageClick = (imageId, selectedImage) => {
   // Check if selectedImage and selectedImage.title are defined
   // console.log(selectedImage);
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+  
   const title = selectedImage?.item_title ? selectedImage.item_title.replace(/\s+/g, '-') : 'default-title'; // Fallback title if not defined
   navigate(`/content?id=${imageId}&title=${title}`, {
-    state: { selectedImageId: imageId }
+    state: { selectedImageId: imageId , selectedImage:selectedImage.item_thumbnail}
   });
 };
 

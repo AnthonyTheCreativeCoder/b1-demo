@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import WordPressService from "../../services/WordPressService";
 
 const siteInitialData = {
-  post_title: "Kline",
+  post_title: "",
   post_content: "Web Design / Development / SEO / Service / Service",
   featured_image:
     "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/bg.png",
@@ -77,6 +77,8 @@ const siteInitialData = {
 
 
 const useWorkDetails = (query) => {
+  // console.log(" work details query");
+  // console.log(query)
   const workDetailsQuery = useQuery({
     queryKey: ['site-work-details-another', query],  // queryKey should be an array
     queryFn: () =>

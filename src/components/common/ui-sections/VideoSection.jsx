@@ -1,25 +1,17 @@
-// import React from 'react'
-// import VideoImg from "../../../assets/images/video.png";
-// import '../../../styles/video-style.css';
 
-// const VideoSection = () => {
-//   return (
-//     <section className="video_section">
-//             <div className="container-fluid">
-//                 <img className="video_area" src={VideoImg} alt="video" />
-//             </div>
-//         </section>
-//   )
-// }
 
 // export default VideoSection
 
 import { useRef, useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import "../../../styles/video-style.css";
 
-const VideoPlayer = ({ video_url }) => {
+  const VideoPlayer = ({ video_url }) => {
+  // console.log("Video URL "+video_url);
+     const location = useLocation();
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { postVideo } = location.state || {};
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -42,10 +34,31 @@ const VideoPlayer = ({ video_url }) => {
     setIsPlaying(false);
   };
 
+
+  
+  const videoudlll = `${video_url}?v=${Math.floor(Math.random() * 1000000000000000)}`;
+  
   return (
     <section className="video_section">
       <div className="container-fluid">
         <div className="video-container">
+          {/* <video
+            playsInline
+            ref={videoRef}
+            id="videoPlayer"
+            onPlay={handlePlay}
+            onPause={handlePause}
+            onEnded={handleEnded}
+          >
+           <source
+              src={videoudlll}
+              type="video/mp4"
+            />*
+            {<source
+              src={video_url}
+              type="video/mp4"
+            />}
+          </video> */}
           <video
             playsInline
             ref={videoRef}
@@ -55,7 +68,7 @@ const VideoPlayer = ({ video_url }) => {
             onEnded={handleEnded}
           >
             <source
-              src="https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/hero-home.mp4"
+              src={postVideo}
               type="video/mp4"
             />
           </video>

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 // import PropTypes from 'prop-types';
 import Typewriter from "../animations/Typewriter";
 import "../../../styles/GalleryWorkDetails-home.css";
@@ -6,10 +7,35 @@ import "../../../styles/AboutHome.css";
 import "../../../styles/services-home.css";
 import othersLeftMask from "../../../assets/images/others-left-mask.svg";
 import maskWhiteNew from "../../../assets/images/mask-white-new.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
+
+const navigate = useNavigate();
+
+ const handleImageClick = (id, url, itemimage) => {
+  // console.log("id is " + id);
+  // console.log("url is " + url);
+
+  url = url.split('/').filter(Boolean).pop();
+    
+
+  // Ensure `url` is a string
+  url = typeof url === "string" ? url : String(url);
+
+  // Replace special characters and encode the URL
+  url = url ? url.replace(/[^a-zA-Z0-9\-]+/g, "-").replace(/\s+/g, "-") : "";
+
+  const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
+  const fullPath = `/service-details${queryString}`;
+  // const fullPath = `/content${queryString}`;
+  // console.log("Navigating to:", fullPath);
+
+  // Navigate to the URL with state
+  navigate(fullPath, { state: { selectedImageId: id , selectedImage:itemimage,isSamePageNavigation: 8888} }); // making image dynamic
+};
+
  
   return (
     <div id="next-section">
@@ -57,19 +83,17 @@ const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
           <div className="row">
             <div className="col-12">
               <div className="first_row_gallery row">
-                 
-
                 <div className={`col-md-6 left_module`}>
-               
-                  
-
-
-
-
-
                         {galleryItems.length > 0 ? (
                         galleryItems.slice(0,3).map((item, index) => (
-                          <Link to={`/service-details?id=${item.id}`} key={index}>
+
+                        <motion.div
+                        key={item.id}
+                        layoutId={`image-${item.id}`} // Shared layout id for image animation
+                        onClick={() => handleImageClick(item.id,item.permalink, item.featured_image)}
+                        style={{ cursor: "pointer" }}
+                        >
+                        <a href="javascript:void(0)">
                         <div key={index} className="glry_hm" data-aos="fade-up">
                         <div className="glry_hm_image">
                         <img
@@ -80,29 +104,30 @@ const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
                         </div>
                         <h5>{item.title}</h5>  
                         </div>
-                         </Link>
+                         </a>
+                        </motion.div>
+
+
                         ))
                         ) : (
                         <p>No gallery items available</p>
                         )}
-
-
-
-
-
-
-
-
-
 
 
                  
                 </div>
 
                 <div className={`col-md-5 rt_module`}>
-                <Link to={"/service-details"}>
-                   {galleryItems.length > 0 ? (
-                        galleryItems.slice(0,3).map((item, index) => (
+                      {galleryItems.length > 0 ? (
+                        galleryItems.slice(3).map((item, index) => (
+                        <motion.div
+                        key={item.id}
+                        layoutId={`image-${item.id}`} // Shared layout id for image animation
+                        onClick={() => handleImageClick(item.id,item.permalink, item.featured_image)}
+                        style={{ cursor: "pointer" }}
+                        >
+
+                        <a href="javascript:void(0)">
                         <div key={index} className="glry_hm" data-aos="fade-up">
                         <div className="glry_hm_image">
                         <img
@@ -113,11 +138,13 @@ const AboutSection = ({ paginationText, title, introText, galleryItems }) => {
                         </div>
                         <h5>{item.title}</h5>  
                         </div>
+                         </a>
+                         </motion.div>
                         ))
                         ) : (
                         <p>No gallery items available</p>
                         )}
-                  </Link>
+
                 </div>
 
                 

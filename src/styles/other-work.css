@@ -1,5 +1,24 @@
 /**** Other work Styles Start ****/
 
+.workPageProjects .btn_cmn{
+    background: linear-gradient(259deg,#ff6534,#1e5dff);
+    border-radius: 2px;
+    color: #fff;
+    display: table;
+    font-family: elzabold;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    padding: 16px 25px 11px;
+    text-transform: uppercase;
+    border: 0;
+}
+
+.fullscreen-overlay {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .others_work_area {
   border-top: 0;
   position: relative;
@@ -94,6 +113,7 @@
 .project_details.workPageProjects a{
   text-decoration: none;
   transition: background-image 0.5s linear;
+  pointer-events: none;
 }
 .pro-details-row
 {
@@ -241,23 +261,34 @@ z-index: 1;
 .right_arrow_section{
   display: flex;
   justify-content: flex-start;
-  margin-top: 20px;
 }
 .workPageProjects .pro-details-row h4 {
-  font-size: 22px;
+  font-size: 16px;
 }
 .workPageProjects .pro-details-row h4.font-bld {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 .workPageProjects .pro-details-row .py-5 {
   padding-top: 2rem!important;
-  padding-bottom: 1rem!important;
+  padding-bottom: 2rem!important;
   padding-left: 10px;
   padding-right: 10px;
 }
 .project_details.workPageProjects {
   padding-bottom: 100px;
   padding-top: 90px;
+}
+}
+@media(max-width:575px) {
+.right_arrow_section{
+  margin-top: 10px;
+}
+.workPageProjects .pro-details-row .py-5 {
+  padding-top: 1.2rem!important;
+  padding-bottom: 1.2rem!important;
+}
+.pro_leftContent + div{
+  padding-left: 15px;
 }
 }

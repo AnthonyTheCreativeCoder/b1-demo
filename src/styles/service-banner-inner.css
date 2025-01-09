@@ -1,0 +1,46 @@
+/* hero-banner-inner.css */
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay effect */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.image-grid {
+  position: relative;
+  width: 100%;
+}
+
+.image-container img.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2; /* Ensure content is above the image */
+}
+
+.cssanimation.sequence.fadeInBottom {
+  animation: fadeInBottom 1.5s ease-out forwards;
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -20,12 +20,12 @@ class WordPressService {
 
   // Function to handle GET requests
   async fetchData(endpoint) {
-    console.log("endpoint "+endpoint);
+    // console.log("endpoint "+endpoint);
     try {
-      const response = await this.axiosInstance.get(endpoint);
-      console.log("response == ")
-      console.log(response.data)
-      console.log("response == ")
+      const response = await this.axiosInstance.get(endpoint);  
+      // console.log("response == ")
+      // console.log(response.data)
+      // console.log("response == ")
       return response.data;
     } catch (error) {
       console.error("Error fetching data from WordPress API:", error);
@@ -36,7 +36,7 @@ class WordPressService {
   // Handle POST requests
   async postData(endpoint, body) {
     try {
-      console.log("== endpoint == " + endpoint);
+      // console.log("== endpoint == " + endpoint);
       const response = await this.axiosInstance.post(endpoint, body);
       return response.data;
     } catch (error) {
@@ -47,17 +47,20 @@ class WordPressService {
 
   //   Function to fetch posts (GET)
   async getPosts() {
-    return this.fetchData("posts");
+    const timestampgposts = Date.now(); // Get current timestamp in milliseconds
+    return this.fetchData(`posts?timestamp=${timestampgposts}`);
   }
 
   // Function to  fetch header (GET)
   async getHeader() {
-    return this.fetchData("site-header");
+     const timestampgthdr = Date.now(); // Get current timestamp in milliseconds
+    return this.fetchData(`site-header?timestamp=${timestampgthdr}`);
   }
 
   // Function  to fetch header (GET)
   async getFooter() {
-    return this.fetchData("site-footer");
+    const timestampgtftr = Date.now(); // Get current timestamp in milliseconds
+    return this.fetchData(`site-footer?timestamp=${timestampgtftr}`);
   }
 
   // Function to fetch a specific post (GET)
@@ -71,14 +74,16 @@ class WordPressService {
   }
   // Function to fetch data of  homepage
   getHomepage() {
-    return this.fetchData("site-home");
+    const timestamp = Date.now(); // Get current timestamp in milliseconds
+    return this.fetchData(`site-home?timestamp=${timestamp}`);
   }
   /**
    * This function will fetch the header and footer.
    * @returns object with include header_menu_items and footer_menu_items
    */
   getHeaderFooter() {
-    return this.fetchData("site-header-footer");
+    const timestampftr = Date.now(); // Get current timestamp in milliseconds
+    return this.fetchData(`site-header-footer?timestamp=${timestampftr}`);
   }
 }
 

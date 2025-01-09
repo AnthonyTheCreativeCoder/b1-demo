@@ -13,7 +13,7 @@ export default function ImageGrid() {
   const navigate = useNavigate();
 
   const handleImageClick = (id) => {
-    console.log("id is"+id);
+    // console.log("id is"+id);
     // Navigating to the content page with selected image ID
     navigate("/content", { state: { selectedImageId: id } });
   };

@@ -74,7 +74,7 @@ const ServiceArea = ({
             <a href="javascript:void(0)">
               <div className="container-fluid row py-5 align-items-center">
                 <div className="row">
-                  <div className="col-lg-11 col-sm-11">
+                  <div className="col-lg-11 col-sm-11 proIconArea">
                     <img
                       className="pro_icon"
                       src={service.item_thumbnail}
@@ -85,7 +85,7 @@ const ServiceArea = ({
                     </h4>
                   </div>
                   <div className="col-lg-1 col-sm-1 right_arrow_section">
-                    <img src={arrowRight} alt="Right arrow icon" />
+                    {/*<img src={arrowRight} alt="Right arrow icon" />*/}
                   </div>
                 </div>
               </div>
