@@ -113,7 +113,7 @@
 .project_details.workPageProjects a{
   text-decoration: none;
   transition: background-image 0.5s linear;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .pro-details-row
 {

@@ -1,28 +1,39 @@
-import React, {useState} from "react";
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../styles/gallery.css";
 import EllipseMore from "../../../assets/images/ellipse-more.svg";
 import SplashDetailsContainer from "../animations/splashAnime/SplashDetailsContainer";
 
 const MoreWork = ({ moreWorks }) => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
-
-const handleImageClick = (imageId, selectedImage) => {
-  // Check if selectedImage and selectedImage.title are defined
-  // console.log(selectedImage);
-  // window.scrollTo(0, 0);
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
   
-  const title = selectedImage?.item_title ? selectedImage.item_title.replace(/\s+/g, '-') : 'default-title'; // Fallback title if not defined
-  navigate(`/content?id=${imageId}&title=${title}`, {
-    state: { selectedImageId: imageId , selectedImage:selectedImage.item_thumbnail}
-  });
-};
+
+  const handleImageClick = (imageId, selectedImage) => {
+    // Delay the scroll to ensure layout rendering is complete
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100); // Adjust this timeout as needed based on performance
+
+    // console.log("=============");
+    // console.log(selectedImage);
+    // console.log("=================");
+
+    // Navigate with title and selected image details
+    const title = selectedImage?.item_url
+      ? selectedImage.item_url.replace(/\s+/g, "-")
+      : "default-title"; // Fallback title if not defined
+    navigate(`/content?id=${imageId}&title=${title}`, {
+      state: { selectedImageId: imageId, selectedImage: selectedImage.item_thumbnail },
+    });
+  };
+
+  if (!moreWorks || moreWorks.length === 0) {
+    // Show a loader if moreWorks is not loaded
+    return <div className="loading-indicator">Loading...</div>;
+  }
 
   return (
     <section className="featured_work_area more_work_area" id="work-section">
@@ -48,10 +59,12 @@ const handleImageClick = (imageId, selectedImage) => {
                 onClick={() => handleImageClick(work.item_id, work)}
               >
                 <div className="more_btn">
+                  {/* eslint-disable jsx-a11y/anchor-is-valid */}
                   <a href="javascript:void(0)">
                     <img src={EllipseMore} alt="ellipseIcon" />
                     <h4>More</h4>
                   </a>
+                  {/* eslint-enable jsx-a11y/anchor-is-valid */}
                 </div>
 
                 {/* Gallery Item */}

@@ -37,14 +37,17 @@ const WorkPage = () => {
   const [isPending, startTransition] = useTransition();
   const [works, setWorks] = useState({});
 
+  // console.log(works);
+
   // Once data is loaded, update the state using startTransition to avoid blocking the UI
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (!isLoading && data) {
       startTransition(() => {
         setWorks(data); // Update works state after data is fetched
       });
     }else{
-      if (isLoading || isPending) {
+      if (isLoading || isPending) { // Suppressing warning for `isPending`
     return (
       <div className="loading-state">
         <HeroSectionPlaceholder />
@@ -82,15 +85,18 @@ const WorkPage = () => {
           works: works.featured_work_items ?? [], // Default to an empty array
         }}
       />
-      <OtherWork
+        {works.non_featured_work_items?.length > 0 && (
+        <OtherWork
         otherProjects={{
-          pagination: works.project_section_pagination ?? "",
-          title: works.project_section_title ?? "",
-          short_title: works.project_section_short_title ?? "",
-          description: works.project_section_description ?? "",
-          projects: works.non_featured_work_items ?? [], // Default to an empty array
+        pagination: works.project_section_pagination ?? "",
+        title: works.project_section_title ?? "",
+        short_title: works.project_section_short_title ?? "",
+        description: works.project_section_description ?? "",
+        projects: works.non_featured_work_items, // Pass the non-featured work items directly
         }}
-      />
+        />
+        )}
+
     </div>
   );
 };

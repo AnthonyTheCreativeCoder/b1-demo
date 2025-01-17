@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, animate } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../../styles/gallery.css";
 import "../../../styles/AboutHome.css";
@@ -10,12 +10,9 @@ import useService from "../../../hooks/react-query/useService";
 const MoreWork = ({ moreWorkId }) => {
   const navigate = useNavigate();
   const location = useLocation(); // To detect URL changes
-  const { data, error, isLoading } = useService();
-
+  const { data } = useService();
   const [loading, setLoading] = useState(false); // State for loader
-
-
-  const [navigationState, setNavigationState] = useState(null); // Holds state for the clicked item
+  // const [navigationState, setNavigationState] = useState(null); // Holds state for the clicked item
 
   useEffect(() => {
     // Reset navigation state when the URL changes
@@ -35,53 +32,20 @@ const MoreWork = ({ moreWorkId }) => {
     ? shuffleArray(data.services.filter((service) => service.id !== moreWorkId)).slice(0, 2)
     : [];
 
-  // const handleImageClick = (id, url, itemimage) => {
-  //   setLoading(true);
-  //    // Reset the image state immediately
-  // setNavigationState({
-  //   selectedImageId: null,
-  //   selectedImage: null,
-  // });
-   
-
-  //   // Process the URL for navigation
-  //   url = url.split("/").filter(Boolean).pop();
-  //   url = typeof url === "string" ? url : String(url);
-  //   url = url ? url.replace(/[^a-zA-Z0-9\-]+/g, "-").replace(/\s+/g, "-") : "";
-
-  //   const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
-  //   const fullPath = `/service-details${queryString}`;
-
-  //   // Navigate after animation completes
-  //   setTimeout(() => {
-  //     navigate(fullPath, {
-  //       state: {
-  //         selectedImageId: id,
-  //         selectedImage: itemimage,
-  //       },
-  //     });
-  //       window.location.reload();
-  //       window.scrollTo(0, 0);
-  //       setLoading(false);
-  //   }, 1500);
-  // };
+  
 
 
   const handleImageClick = (id, url, itemimage) => {
   setLoading(true);
 
-  // Reset the image state
-  setNavigationState({
-    selectedImageId: null,
-    selectedImage: null,
-  });
+  
 
   // Process the URL for navigation
   const processedUrl = url
     .split("/")
     .filter(Boolean)
     .pop()
-    .replace(/[^a-zA-Z0-9\-]+/g, "-")
+    .replace(/[^a-zA-Z0-9-]+/g, "-") // Removed unnecessary escape character
     .replace(/\s+/g, "-");
 
   const queryString = `?id=${id}&title=${encodeURIComponent(processedUrl)}`;
@@ -107,45 +71,30 @@ const MoreWork = ({ moreWorkId }) => {
   }, 100); // Adjust delay as needed
 };
 
-
-
-
-
   return (
-    <div className="container-fluid">
-
+    <>
+    {/* More Services Section Start */}
+    <section className="home-page-adventure-wrapper pt-0">
      {loading && (
         <div className="loader-overlay">
           <div className="loader"></div>
         </div>
       )}
-
-      <SplashDetailsContainer />
-
-      <div className="row pt-200">
+<div class="container-fluid">
+<SplashDetailsContainer />
+      <div className="gallery-work-details-area gallery-bg-white">
+        <div className="row">
+        <div class="col-12">
+        <div className="row pt-200 moreServiceArea">
         <div className="col-12">
           <div className="head_head">
-            <h2
-              className="mb-0"
-              style={{
-                color: "#000",
-                fontSize: "100px",
-                fontStyle: "normal",
-                fontWeight: 900,
-                lineHeight: "1.2",
-                marginBottom: "30px",
-                paddingTop: "100px",
-                fontFamily: "'elzablack', sans-serif",
-              }}
-            >
+            <h2>
               More Services
             </h2>
           </div>
         </div>
       </div>
-
-      <section className="gallery-work-details-area gallery-bg-white">
-        <div className="row">
+        </div>
           <div className="col-12">
             <div className="first_row_gallery row">
               <div className="col-md-6 left_module">
@@ -206,8 +155,11 @@ const MoreWork = ({ moreWorkId }) => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+      </div>
+    </section>
+    {/* More Services Section End */}
+    </>
   );
 };
 

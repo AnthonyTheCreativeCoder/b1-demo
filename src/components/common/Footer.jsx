@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../../styles/Footer.css";
 import Typewriter from "./animations/Typewriter";
-// import WordPressService from "../../services/WordPressService";
-// import "../../styles/header-footer.css"
 import { Link, useLocation } from "react-router-dom";
 import useHome from "../../hooks/react-query/useHome";
 
 const Footer = ({ footer, err = null }) => {
-  const { data, error } = useHome();
+  const { data } = useHome();
   const homedata = data;
   // const [error, setError] = useState(err);
   const footerLinks = [
@@ -17,45 +15,33 @@ const Footer = ({ footer, err = null }) => {
   ];
   const location = useLocation();
   const isContactPage = location.pathname.startsWith("/contact");
-  // useEffect(() => {
-  //   document.querySelectorAll(".border-animation").forEach((item) => {
-  //     const span = document.createElement("span");
-  //     span.className = "border-animation-inner";
-  //     item.insertBefore(span, item.firstChild);
-  //   });
 
-  //   document.querySelectorAll(".button_social").forEach((item) => {
-  //     const span = document.createElement("span");
-  //     span.className = "button-bg";
-  //     item.insertAdjacentElement("afterend", span);
-  //   });
-  // }, [location.pathname]);
 
 
   useEffect(() => {
-  const observer = new MutationObserver(() => {
-    document.querySelectorAll(".border-animation").forEach((item) => {
-      if (!item.querySelector(".border-animation-inner")) {
-        const span = document.createElement("span");
-        span.className = "border-animation-inner";
-        item.insertBefore(span, item.firstChild);
-      }
+    const observer = new MutationObserver(() => {
+      document.querySelectorAll(".border-animation").forEach((item) => {
+        if (!item.querySelector(".border-animation-inner")) {
+          const span = document.createElement("span");
+          span.className = "border-animation-inner";
+          item.insertBefore(span, item.firstChild);
+        }
+      });
+
+      document.querySelectorAll(".button_social").forEach((item) => {
+        if (!item.nextElementSibling || !item.nextElementSibling.classList.contains("button-bg")) {
+          const span = document.createElement("span");
+          span.className = "button-bg";
+          item.insertAdjacentElement("afterend", span);
+        }
+      });
     });
 
-    document.querySelectorAll(".button_social").forEach((item) => {
-      if (!item.nextElementSibling || !item.nextElementSibling.classList.contains("button-bg")) {
-        const span = document.createElement("span");
-        span.className = "button-bg";
-        item.insertAdjacentElement("afterend", span);
-      }
-    });
-  });
+    observer.observe(document.body, { childList: true, subtree: true });
 
-  observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
-  return () => observer.disconnect();
-}, [location.pathname]);
-  
 
   return (
     <footer id="footer-section">
@@ -85,44 +71,26 @@ const Footer = ({ footer, err = null }) => {
         <div className="container-fluid footer_social">
           <div className="row">
             <div className="col-12">
-            <nav>
-  {footer?.length > 0 && (
-
-/* <ul className="d-flex m-0 p-0 justify-content-center">
-  {footerData.menu_items.map((item, index) => (
-    <li key={index} className="button-wrapper">
-      <a
-        className={`button_social ${
-          index === 0 ? "active" : ""
-        }`}
-        href="https://www.facebook.com/"
-      >
-        {item.title}
-      </a>{" "}
-      <span className="button-bg"></span>
-      <span className="button-bg"></span>
-    </li>
-  ))}
-</ul> */
-
-    <ul className="d-flex m-0 p-0 justify-content-center">
-      {footerLinks.map(({ title, url }, index) => (
-        <li key={index} className="button-wrapper">
-          <a
-            target="_blank"
-            rel="noreferrer"
-            className="button_social"
-            href={url} // Dynamic hyperlink
-          >
-            {title} {/* Static or unchanged */}
-          </a>
-          <span className="button-bg"></span>
-          <span className="button-bg"></span>
-        </li>
-      ))}
-    </ul>
-  )}
-</nav>
+              <nav>
+                {footer?.length > 0 && (
+                  <ul className="d-flex m-0 p-0 justify-content-center">
+                    {footerLinks.map(({ title, url }, index) => (
+                      <li key={index} className="button-wrapper">
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          className="button_social"
+                          href={url} // Dynamic hyperlink
+                        >
+                          {title} {/* Static or unchanged */}
+                        </a>
+                        <span className="button-bg"></span>
+                        <span className="button-bg"></span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </nav>
             </div>
           </div>
         </div>

@@ -25,3 +25,4 @@ const HeroSection = ({ banner: { image, title, description } }) => {
 };
 
 export default HeroSection;
+

@@ -1,13 +1,10 @@
-import React from "react";
-
+import React, {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../../../styles/rain-animation.css";
 import "../../../styles/services-home.css";
 import SplashContainer from "../animations/splashAnime/SplashContainer";
 import Typewriter from "../animations/Typewriter";
 import rainBox from "../../../assets/images/home-services-rain-box.png";
-import developmentIcon from "../../../assets/images/development-icon.png";
-import arrowRight from "../../../assets/images/arrow-right.svg";
-import { Link } from "react-router-dom";
 
 const ServiceArea = ({
   paginationText,
@@ -16,6 +13,15 @@ const ServiceArea = ({
   image,
   description,
 }) => {
+  const navigate = useNavigate();
+  const staticContentFunc = (service) => {
+    // console.log(service);
+    setTimeout(() => {
+      navigate(`/post-details/home/${service.item_url}/`, { state: { itemTitle: service.item_title, itemURL:service.item_title,  itemID:service.item_id, itemDescription:service.item_description} });
+    }, 100); // Wait for the state vale set properly
+    };
+
+
   return (
     <section className="service_area_home" id="services-section">
       {/* Splash boxes start */}
@@ -23,7 +29,7 @@ const ServiceArea = ({
       {/* Splash boxes End */}
 
       <div className="col-12 ft_msk_left">
-        <img src={rainBox} alt="mask image" />
+        <img src={rainBox} alt="masked 11" />
       </div>
 
       <div className="container-fluid">
@@ -55,10 +61,7 @@ const ServiceArea = ({
               <Link to={"/services"} className="btn_cmn border-animation">
                 View All
               </Link>
-              {/* <a href="javascript:void(0)" className="btn_cmn border-animation">
-                <span className="border-animation-inner"></span>
-                View All
-              </a> */}
+            
             </div>
           </div>
         </div>
@@ -70,26 +73,28 @@ const ServiceArea = ({
           <div
             className={`pro-details-row ${index === 0 ? "active" : ""}`}
             key={index}
-          >
-            <a href="javascript:void(0)">
+            onClick={() => staticContentFunc(service)}>
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
+            <a href="javascript:void(0);">
               <div className="container-fluid row py-5 align-items-center">
                 <div className="row">
                   <div className="col-lg-11 col-sm-11 proIconArea">
                     <img
                       className="pro_icon"
                       src={service.item_thumbnail}
-                      alt={service.item_url}
+                      alt="Service Item"
                     />
                     <h4 className="text-start font-bld">
-                      {service.item_title}
+                      {service.item_title} 
                     </h4>
                   </div>
                   <div className="col-lg-1 col-sm-1 right_arrow_section">
-                    {/*<img src={arrowRight} alt="Right arrow icon" />*/}
+                  <img src="/static/media/arrow-right.7b745aff3497202e7662f2d3e9831ade.svg" alt="RightArrowIcon" />
                   </div>
                 </div>
               </div>
             </a>
+            {/* eslint-enable jsx-a11y/anchor-is-valid */}
           </div>
         ))}
       </div>

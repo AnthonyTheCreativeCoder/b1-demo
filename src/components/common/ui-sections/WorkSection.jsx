@@ -1,5 +1,4 @@
-import React, { startTransition, useState } from "react";
-// import { motion } from "framer-motion";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Typewriter from "../animations/Typewriter";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,33 +10,33 @@ import maskWhite from "../../../assets/images/mask-white.svg";
 const WorkSection = ({ title, paginationText, projects, description }) => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [loading, setLoading] = useState(false); // Loading state
 
-  // const handleImageClick = (id, url) => {
-  //   url = url ? url.replace(/\s+/g, "-") : "";
-  //   const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
-
-  //   // Wrap navigate with startTransition to avoid blocking UI
-  //   startTransition(() => {
-  //     navigate(`/content${queryString}`, { state: { selectedImageId: id } });
-  //   });
-  // };
-
-   const handleImageClick = (work, thumbnail, post_video) => {
+  const handleImageClick = (work, thumbnail, post_video, item_contents) => {
+    if (loading) return; // Prevent duplicate clicks
     setSelectedImage(work); // Set the selected image for fullscreen zoom
-    setTimeout(() => {
-      // Redirect to the details page after animation
-      const url = work.item_title.replace(/\s+/g, "-"); // URL-friendly title
-      const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
-      navigate(`/content${queryString}`, { state: { selectedImageId: work.item_id , selectedImage:thumbnail, postVideo:post_video} });
-    }, 800); // Wait for the animation duration (adjust to match the transition time)
-  };
+    setLoading(true); // Start the loading state
 
+    // console.log(work);
+    // console.log(item_contents);
+
+    const animationDuration = 1200; // Match with transition duration
+    setTimeout(() => {
+    
+      const url = work.item_url.replace(/\s+/g, "-"); 
+
+      const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
+      navigate(`/content${queryString}`, {
+        state: { selectedImageId: work.item_id, selectedImage: thumbnail, postVideo: post_video , itemContents: item_contents.join(',')},
+      });
+    }, animationDuration); // Wait for the animation to complete
+  };
 
   return (
     <section className="home-page-work-wrapper" id="work-section">
       <div className="container-fluid">
         <div className="col-12 smll_bx_wht">
-          <img src={maskWhite} alt="mask image" />
+          <img src={maskWhite} alt="mask  1" />
         </div>
         <div className="pagination-text row justify-content-between align-items-center py-5">
           <div className="col-6">
@@ -59,9 +58,9 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
                     key={project.item_id}
                     layoutId={`image-${project.item_id}`} // Shared layout id for image animation
                     onClick={() =>
-                      handleImageClick(project, project.item_thumbnail, project.post_video)
+                      handleImageClick(project, project.item_thumbnail, project.post_video, project.item_services)
                     }
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: loading ? "not-allowed" : "pointer" }} // Disable click during loading
                   >
                     <img
                       className="main-img"
@@ -113,7 +112,8 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // Slower animation
+            onAnimationComplete={() => setLoading(false)} // Reset loading state
             style={{
               position: "fixed",
               top: 0,
@@ -126,7 +126,6 @@ const WorkSection = ({ title, paginationText, projects, description }) => {
           />
         )}
       </AnimatePresence>
-
     </section>
   );
 };

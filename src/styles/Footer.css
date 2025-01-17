@@ -245,10 +245,13 @@ footer .typewrite > .wrap::after {
 }
 @media (max-width: 575px) {
   .lets_connct {
-    font-size: 44px;
+    font-size: 35px;
   }
   footer h6 {
     font-size: 23px;
+}
+footer .typewrite>.wrap:after {
+  height: 40px;
 }
 }
 

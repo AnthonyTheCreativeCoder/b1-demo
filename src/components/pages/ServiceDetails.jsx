@@ -30,12 +30,12 @@ export default function PageContent() {
 
   // Use the value of isSamePageNavigation
 if (isSamePageNavigation) {
-  console.log("Navigating from the same page, no animation required.");
+  // console.log("Navigating from the same page, no animation required.");
 } else {
-  console.log("Navigating from a different page, apply animation.");
+  // console.log("Navigating from a different page, apply animation.");
 }
 
-  console.log("Is Same Page Navigation "+isSamePageNavigation);
+  // console.log("Is Same Page Navigation "+isSamePageNavigation);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,55 +58,26 @@ if (isSamePageNavigation) {
   return (
     <div className="serviceDetailsBanner" style={{ backgroundColor: 'white' }}>
       {/* Fullscreen Image Section */}
-
-    {isSamePageNavigation === 8888 ? (
-      <motion.div
-        layoutId={`image-${selectedImageId}`}
+        <section className="Statisdiv">
+          
+        <div
         style={{
-          backgroundImage: `url(${selectedImage})`,
+        backgroundImage: `url(${selectedImage})`,
         }}
         className="imageServiceDetails"
-        initial={{ scale: 1 }}
-        animate={{ scale: isAnimationReady ? 1 : 1 }} // Animate only after data is ready
-        exit={{ scale: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+        >
         {/* Overlay */}
         <div className="overlayDetails"></div>
 
         {/* Title Centered */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isAnimationReady ? 1 : 0 }} // Fade in once data is ready
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="motionBannerArea"
-        >
-          <h1 className="cssanimation sequence fadeInBottom">
-            {data?.post_title || ""}
-          </h1>
-        </motion.div>
-      </motion.div>
- ) : (
-      <section className="Statisdiv">
-         
-    <div
-      style={{
-        backgroundImage: `url(${selectedImage})`,
-      }}
-      className="imageServiceDetails"
-    >
-      {/* Overlay */}
-      <div className="overlayDetails"></div>
-
-      {/* Title Centered */}
-      <div className="motionBannerArea">
+        <div className="motionBannerArea">
         <h1 className="cssanimation sequence fadeInBottom">
           {data?.post_title || ""}
         </h1>
-      </div>
-    </div>
-      </section>
-       )}
+        </div>
+        </div>
+        </section>
+     
 
       <section className="overview_area" id="overview-section">
         <div className="container-fluid">

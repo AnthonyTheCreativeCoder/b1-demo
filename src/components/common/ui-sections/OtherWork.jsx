@@ -36,9 +36,6 @@ const OtherWork = ({
             </div>
             <div className="featured_intro fadeinBottom">
               <h3>
-                {/* <span className="typewrite" data-period="2000"
-                            data-type='["Our work sem sollicitudin lacus, ut interdum tellus elit sed risus."]'
-                            style="--speed: 100;"></span> */}
                 <Typewriter
                   textArray={[description]}
                   period={2000}

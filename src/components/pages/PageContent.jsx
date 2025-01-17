@@ -46,8 +46,11 @@ export default function PageContent() {
   const navigate = useNavigate();
   const { selectedImageId } = location.state || {};
   const { selectedImage } = location.state || {};
-  // const { postVideo } = location.state || {};
-  // const selectedImage = images.find((img) => img.id === selectedImageId);
+  const { itemContents } = location.state || {};
+
+
+ const itemContentsArray = itemContents ? itemContents.split(',') : [];
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,43 +65,31 @@ export default function PageContent() {
   return (
 <div className="bannerWorkDetails" style={{ minHeight: "100vh" }}>
    {/* Fullscreen Image Section */}
-    <motion.div
-    layoutId={`image-${selectedImageId}`}
-    style={{
+   <div
+  style={{
     backgroundImage: `url(${selectedImage})`,
-    }}
-    className="imageBannerDetails"
-    initial={{ scale: 1 }}
-    animate={{ scale: 1 }}
-    exit={{ scale: 1 }}
-    transition={{
-    duration: 2, // Increase duration for a slower effect
-    ease: "easeInOut", // Add an easing function for smoother animation
-    }}
-    >
-      {/* Overlay */}
-      <div className="overlayDetails"></div>
+  }}
+  className="imageBannerDetails"
+>
+  {/* Overlay */}
+  <div className="overlayDetails"></div>
 
-      {/* Title Centered */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-       className="motionBannerArea"
-      >
-        <h1 className="cssanimation sequence fadeInBottom">
-          {work?.post_title}
-        </h1>
-      </motion.div>
+  {/* Title Centered */}
+  <div className="motionBannerArea">
+    <h1 className="cssanimation sequence fadeInBottom">
+      {work?.post_title}
+    </h1>
+  </div>
 
- {/* ArrowBounceInner */}
- <ArrowBounce id="overview-section" />
-</motion.div>
+  {/* ArrowBounceInner */}
+  <ArrowBounce id="overview-section" />
+</div>
+
 
     {/* Breadcrumb Banner */}
     
     <BreadcrumbBanner
-        services={work?.item_services.length > 0 ? work?.item_services : work.post_content.split("/")}
+        services={itemContentsArray}
         logo={work?.work_logo || klineLogo}
       />
 

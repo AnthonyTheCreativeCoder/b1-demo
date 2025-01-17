@@ -9,8 +9,8 @@ const BreadcrumbBanner = ({ services, logo }) => {
         <img src={logo} alt="klineLogo" />
         <ul className="list-group list-group-horizontal">
           {services.length > 0 &&
-            services.map((item) => (
-              <li className="list-group-item ">
+            services.map((item, index) => (
+              <li className="list-group-item " key={index}>
                 {item}
               </li>
             ))}

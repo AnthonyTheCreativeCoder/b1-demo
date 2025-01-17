@@ -11,7 +11,6 @@ import WhiteSmallTiles from "../../../assets/images/white-small-tiles.png";
 const HorizontalSlider = ({
   mobileSection: { title, description, mobileGallery },
 }) => {
-
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const swiperWrapperRef = useRef(null);
   const sliderGalleryRef = useRef(null);
@@ -76,13 +75,12 @@ const HorizontalSlider = ({
     }
 
     return () => {
-      // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       const myTrigger = ScrollTrigger.getById("horizontalSliderScrollTrigger");
       if (myTrigger) {
         myTrigger.kill();
       }
     };
-  }, [imagesLoaded]);
+  }, [imagesLoaded]); // Dependency array includes imagesLoaded
 
   const handleImagesLoad = () => {
     setImagesLoaded(true);
@@ -103,7 +101,7 @@ const HorizontalSlider = ({
         }
       };
     });
-  }, []);
+  }, [mobileGallery]); // Dependency array includes mobileGallery
 
   return (
     <>
@@ -157,18 +155,6 @@ const HorizontalSlider = ({
                   <img src={image} alt={`Slide ${index}`} />
                 </div>
               ))}
-              {/* <div className="swiper-slide">
-                <img src={slider2} alt="Slide 2" />
-              </div>
-              <div className="swiper-slide">
-                <img src={slider3} alt="Slide 3" />
-              </div>
-              <div className="swiper-slide">
-                <img src={slider4} alt="Slide 4" />
-              </div>
-              <div className="swiper-slide">
-                <img src={slider5} alt="Slide 5" />
-              </div> */}
             </div>
           </div>
         </div>
@@ -178,3 +164,4 @@ const HorizontalSlider = ({
 };
 
 export default HorizontalSlider;
+

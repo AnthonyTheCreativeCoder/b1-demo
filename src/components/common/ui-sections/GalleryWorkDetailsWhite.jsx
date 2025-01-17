@@ -22,7 +22,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg1}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module background 1"
                 />
               </div>
               <div className="col-md-5 rt_module">
@@ -32,7 +32,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg2}
                   width="232"
                   height="290"
-                  alt="gallery image"
+                  alt="Module gallery  1"
                 />
                 <img
                   className="module-gallery-image"
@@ -40,7 +40,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg3}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 2"
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg4}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 3"
                 />
               </div>
             </div>
@@ -64,7 +64,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg5}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 4"
                 />
                 <img
                   className="module-gallery-image"
@@ -72,7 +72,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg7}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 5"
                 />
               </div>
               <div className="col-md-6 rt_module">
@@ -82,7 +82,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg6}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 6"
                 />
                 <img
                   className="module-gallery-image"
@@ -90,7 +90,7 @@ const GalleryWorkDetailsWhite = ({ galleryImages }) => {
                   src={ModuleBg8}
                   width="232"
                   height="290"
-                  alt="galleryImage"
+                  alt="Module gallery 7"
                 />
               </div>
             </div>

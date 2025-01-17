@@ -1,5 +1,8 @@
 /**** Featured work Styles start ****/
-
+html, body {
+  scroll-behavior: smooth;
+  overflow: auto;
+}
 .loader-overlay {
   position: fixed;
   top: 0;

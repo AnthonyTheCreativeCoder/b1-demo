@@ -54,12 +54,12 @@ const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
   const handleScroll = () => {
     const newScroll = window.pageYOffset;
     const direction = newScroll > currentScroll ? 1 : -1;
-    if (direction !== scrollDirection) {
-      if (loopRef.current) {
-        gsap.to(loopRef.current, { timeScale: direction, overwrite: true });
-      }
-      setScrollDirection(direction);
-    }
+    // if (direction !== scrollDirection) {
+    //   if (loopRef.current) {
+    //     gsap.to(loopRef.current, { timeScale: direction, overwrite: true });
+    //   }
+    //   setScrollDirection(direction);
+    // }
     setCurrentScroll(newScroll);
   };
 
@@ -68,10 +68,63 @@ const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
     ScrollTrigger.refresh();
   };
 
-  const initializeHorizontalMarquee = () => {
-    const links = document.querySelectorAll(".js-text");
-    const paddingRight = parseFloat(gsap.getProperty(links[0], "marginRight", "px"));
+  // const initializeHorizontalMarquee = () => {
+  //   const links = document.querySelectorAll(".js-text");
+  //   const paddingRight = parseFloat(gsap.getProperty(links[0], "marginRight", "10px"));
 
+  //   const loop = horizontalLoop(links, {
+  //     repeat: -1,
+  //     speed: 1.5,
+  //     draggable: false,
+  //     reversed: false,
+  //     paddingRight: paddingRight,
+  //   });
+
+  //   loopRef.current = loop;
+  // };
+
+  // const initializeHorizontalMarquee = () => {
+  //   const links = document.querySelectorAll(".js-text");
+  
+  //   // Set a larger margin-right to increase spacing
+  //   const updatedMarginRight = 20; // Adjust this value as needed
+  //   links.forEach(link => {
+  //     gsap.set(link, { marginRight: `${updatedMarginRight}px` });
+  //   });
+  
+  //   // Retrieve the updated paddingRight value
+  //   const paddingRight = parseFloat(gsap.getProperty(links[0], "marginRight", "px"));
+  
+  //   // Initialize the horizontal loop with the updated paddingRight
+  //   const loop = horizontalLoop(links, {
+  //     repeat: -1,
+  //     speed: 1.5,
+  //     draggable: false,
+  //     reversed: false,
+  //     paddingRight: paddingRight,
+  //   });
+  
+  //   loopRef.current = loop;
+  // };
+  
+
+  const initializeHorizontalMarquee = () => {
+    const links = Array.from(document.querySelectorAll(".js-text"));
+  
+    // Set a larger margin-right to increase spacing
+    const updatedMarginRight = 5; // Adjust this value as needed
+    links.forEach(link => {
+      gsap.set(link, { marginRight: `${updatedMarginRight}px  !important` });
+    });
+  
+    // Add some margin on the left for the first element
+    const updatedMarginLeft = 5; // Adjust this value as needed
+    gsap.set(links[0], { marginLeft: `${updatedMarginLeft}px !important` });
+  
+    // Retrieve the updated paddingRight value
+    const paddingRight = parseFloat(gsap.getProperty(links[0], "marginRight", "px !important"));
+  
+    // Initialize the horizontal loop with the updated paddingRight
     const loop = horizontalLoop(links, {
       repeat: -1,
       speed: 1.5,
@@ -79,9 +132,13 @@ const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
       reversed: false,
       paddingRight: paddingRight,
     });
-
+  
     loopRef.current = loop;
   };
+  
+  
+  
+  
 
   const horizontalLoop = (items, config) => {
     items = gsap.utils.toArray(items);
@@ -180,22 +237,29 @@ const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
           </div>
         )}
 
+        
         <div className="overlay" id="overlay">
-          <div className="main-hero">
-            <div className="text-marquee">
-              <div className="text-single">
-              <h1>
-                {textArray.map((item, index) => (
-                  <span key={index} className="text_marquee_hero js-text">
-                    {item}
-                    {index !== textArray.length - 1 ? "/" : " "}
-                  </span>
-                ))}
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div className="main-hero">
+    <div className="text-marquee">
+      <div className="text-single">
+        <h1>
+          {textArray.map((item, index) => (
+            <span
+              key={index}
+              className={`text_marquee_hero js-text ${
+                index === textArray.length - 1 ? "last-element" : ""
+              }`}
+             
+            >
+              {item}
+              {index !== textArray.length - 1 ? "/" : "/"}
+            </span>
+          ))}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </section>
   );

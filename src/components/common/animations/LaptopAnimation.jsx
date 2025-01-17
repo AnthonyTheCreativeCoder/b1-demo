@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import KlineDesign from "../../../assets/images/Kline-Designs.webp";
 import "../../../../src/styles/laptop-scroll.css";
 import gsap from "gsap";
@@ -41,8 +41,7 @@ const LaptopAnimation = ({ inLaptopImage }) => {
           duration: 1,
           ease: "none",
         });
-      // ScrollTrigger.refresh();
-      // Use refreshHard for complete recalculation of AOS positions
+
       AOS.refreshHard();
     }
     // });
@@ -65,11 +64,9 @@ const LaptopAnimation = ({ inLaptopImage }) => {
     // Initialize animation when the image is loaded
     if (imageLoaded) {
       animateLaptop();
-      // ScrollTrigger.refresh();
     }
 
     return () => {
-      // ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       const myTrigger = ScrollTrigger.getById("laptopAnimationScrollTrigger");
       if (myTrigger) {
         myTrigger.kill();

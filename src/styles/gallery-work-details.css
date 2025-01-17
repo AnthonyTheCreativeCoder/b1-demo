@@ -16,10 +16,10 @@
   justify-content: space-between;
 }
 
-.first_row_gallery img,
+/* .first_row_gallery img,
 .third_row_gallery img {
   margin-bottom: 150px;
-}
+} */
 
 .middle_row_gallery {
   margin-bottom: 150px;
@@ -40,7 +40,25 @@
   max-width: 60%;
 }
 
+.moreServiceArea h2{
+  color: #000;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  padding-top: 100px;
+  font-family: 'elzablack', sans-serif;
+}
+@media (max-width: 1200px) {
+  .moreServiceArea h2 {
+    font-size: 80px;
+}
+}
 @media (max-width: 767px) {
+  .moreServiceArea h2 {
+    font-size: 60px;
+}
   .gallery-work-details-area {
     padding: 80px 0;
   }

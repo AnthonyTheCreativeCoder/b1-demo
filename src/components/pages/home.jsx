@@ -11,63 +11,26 @@ import useService from "../../hooks/react-query/useService";
 import Typewriter from "../common/animations/Typewriter";
 import { Link, useNavigate } from "react-router-dom";
 import maskWhiteNew from "../../assets/images/mask-white-new.svg";
-
-
 const HomePage = () => {
-  const { data, error } = useHome();
-  const homedata = data;
-  const paginationText = "02/03";
-  
-
-  const galleryItems = homedata?.adventure_items ? homedata.adventure_items : [];
-   const [selectedImage, setSelectedImage] = useState(null);
-
-  // console.log("============");
-  // console.log(galleryItems);
-  // console.log("============");
-
-  const navigate = useNavigate();
-
-//  const handleImageClick = (id, url) => {
-
-//   url = url.split('/').filter(Boolean).pop();
-    
-
-//   // Ensure `url` is a string
-//   url = typeof url === "string" ? url : String(url);
-
-//   // Replace special characters and encode the URL
-//   url = url ? url.replace(/[^a-zA-Z0-9\-]+/g, "-").replace(/\s+/g, "-") : "";
-
-//   const queryString = `?id=${id}&title=${encodeURIComponent(url)}`;
-//   const fullPath = `/service-details${queryString}`;
-//   // const fullPath = `/content${queryString}`;
-//   // console.log("Navigating to:", fullPath);
-
-//   // Navigate to the URL with state
-//   navigate(fullPath, { state: { selectedImageId: id } });
-// };
-
-
-   const handleImageClick = (work,permalink,featured_image) => {
-
-    // console.log("work is => "+permalink+" featured_image "+featured_image);
-    // console.log("post video is => "+post_video);
+    const { data, error } = useHome();
+    const [loading, setLoading] = useState(false); 
+    const homedata = data;
+    const paginationText = "02/03";
+    const galleryItems = homedata?.adventure_items ? homedata.adventure_items : [];
+    const [selectedImage, setSelectedImage] = useState(null);
+    const navigate = useNavigate();
+    const handleImageClick = (work,permalink,featured_image) => {
     setSelectedImage(work); // Set the selected image for fullscreen zoom
+    setLoading(true);
     setTimeout(() => {
-      // Redirect to the details page after animation
-      let url = permalink; // URL-friendly title
-      url = url.split('/').filter(Boolean).pop();
-       // url = url.split('/').filter(Boolean).pop();
-      // Ensure `url` is a string
-       // url = typeof url === "string" ? url : String(url);
-      url = url ? url.replace(/[^a-zA-Z0-9\-]+/g, "-").replace(/\s+/g, "-") : "";
-
-
-      const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
-      navigate(`/service-details${queryString}`, { state: { selectedImageId: work.item_id, selectedImage:featured_image, isSamePageNavigation: 8888 } });
-    }, 800); // Wait for the animation duration (adjust to match the transition time)
-  };
+    // Redirect to the details page after animation
+    let url = permalink; // URL-friendly title
+    url = url.split('/').filter(Boolean).pop();
+    url = url ? url.replace(/[^a-zA-Z0-9\-]+/g, "-").replace(/\s+/g, "-") : "";
+    const queryString = `?id=${work.item_id}&title=${encodeURIComponent(url)}`;
+    navigate(`/service-details${queryString}`, { state: { selectedImageId: work.item_id, selectedImage:featured_image, isSamePageNavigation: 8888 } });
+    }, 1200); // Wait for the animation duration (adjust to match the transition time)
+    };
 
 
   return (
@@ -90,12 +53,7 @@ const HomePage = () => {
 
       <section className="home-page-adventure-wrapper">
         <SplashContainer />
-      {/*  <AboutSection
-          paginationText={homedata?.about_section_pagination}
-          title={homedata?.about_section_short_title}
-          introText={homedata?.about_section_description}
-          galleryItems={homedata?.adventure_items}
-        />*/}
+     
 
         {/*Home page adventure section */}
         <div className="container-fluid">
@@ -201,7 +159,8 @@ const HomePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }} // Slower animation
+            onAnimationComplete={() => setLoading(false)} // Reset loading state
             style={{
               position: "fixed",
               top: 0,

@@ -1,5 +1,9 @@
 /**** Services home Start ****/
 
+.cursr_pointer{
+ cursor: pointer;
+}
+
 .service_area_home {
   background-image: url("../assets/images/services-home-banner.webp");
   background-repeat: no-repeat;
@@ -111,7 +115,7 @@
 .service_area_home .project_details a {
   text-decoration: none;
   transition: background-image 0.5s linear;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .service_area_home .pro-details-row {
   border-bottom: 1px solid #4f4f4f;
