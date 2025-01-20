@@ -116,7 +116,17 @@ export default function PageContent() {
                 speed={100}
                 customclassName="typewrite"
               />
-              <Link className="white_btn_black_bg mt-5">{work?.work_details_page_button_title}</Link>
+             
+                          {work?.work_details_page_button_link?.startsWith('http') && (
+                          <Link
+                          to={work.work_details_page_button_link}
+                          className="white_btn_black_bg mt-5"
+                          >
+                          {work?.work_details_page_button_title}
+                          </Link>
+                          )}
+
+             
             </div>
           </div>
         </div>

@@ -12,7 +12,9 @@ import useAboutDetails from "../../hooks/react-query/useAboutDetails";
 function About() {
 
   const { data, error, isLoading } = useAboutDetails();
-  const short_description = data?.about_data?.short_desscription || 'Loream Ipsum';
+  const short_description = data?.about_data?.short_desscription || '';
+  const heading = data?.about_data?.title || '';
+  
 
    const handleClick = (e) => {
     e.preventDefault(); // Prevent the default link behavior
@@ -25,7 +27,7 @@ function About() {
       <HeroSection
         banner={{
           image: heroImage,
-          title: "About",
+          title: heading,
           description: short_description,
         }}
       />

@@ -7,7 +7,7 @@ import "../../../styles/contactForm.css";
 import "../../../styles/responsive.css";
 import { MaskWhite } from "../../../assets";
 
-function ContactForm() {
+function ContactForm({contact_sub_heading, contact_subheading_content, contact_phone, contact_email, contact_address}) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -213,11 +213,9 @@ function ContactForm() {
               >
                 <div className="container-box">
                   <div className="text-content">
-                    <p className="text-blk contactus-head">Contact us</p>
+                    <p className="text-blk contactus-head">{contact_sub_heading}</p>
                     <p className="text-blk contactus-subhead">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim
+                      {contact_subheading_content}
                     </p>
                   </div>
                   <div className="workik-contact-bigbox">
@@ -228,7 +226,7 @@ function ContactForm() {
                           className="contact-svg"
                           src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg"
                         />
-                        <p className="contact-text">+1258 3258 5679</p>
+                        <p className="contact-text">{contact_phone}</p>
                       </div>
                       <div className="address text-box">
                         <img
@@ -236,7 +234,7 @@ function ContactForm() {
                           className="contact-svg"
                           src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg"
                         />
-                        <p className="contact-text">hello@workik.com</p>
+                        <p className="contact-text">{contact_email}</p>
                       </div>
                       <div className="mail text-box">
                         <img
@@ -245,7 +243,7 @@ function ContactForm() {
                           src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET23.jpg"
                         />
                         <p className="contact-text">
-                          102 street, y cross 485656
+                         {contact_address}
                         </p>
                       </div>
                     </div>

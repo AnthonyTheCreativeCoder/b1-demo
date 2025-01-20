@@ -6,6 +6,7 @@ import SplashContainer from "../common/animations/splashAnime/SplashContainer";
 import AboutSection from "../common/ui-sections/AboutSection";
 import { heroImage } from "../../assets";
 import useService from "../../hooks/react-query/useService";
+import useServiceContent from "../../hooks/react-query/useServiceContent";
 import "../../styles/preloader-style.css";
 
 // Placeholder components for smoother loading
@@ -33,40 +34,50 @@ const SplashContainerPlaceholder = () => (
 
 // This component will render while data is loading
 const ServiceContent = () => {
+  const { dataser, errordata, isLoadingdata } = useServiceContent();
   const { data, error, isLoading } = useService();
   const [isPending, startTransition] = useTransition();
   const [works, setWorks] = useState({});
 
-  // Once data is fetched, update the state using startTransition
   useEffect(() => {
     if (!isLoading && data) {
       startTransition(() => {
-        setWorks(data);  // Update works state when data is available
+        setWorks(data);
       });
-    }else{
-      if (isLoading || isPending) {
-    return (
-      <div className="loading-state">
-       <HeroSectionPlaceholder />
-      <SplashContainerPlaceholder />
-      <AboutSectionPlaceholder />
-      </div>
-    );
-  }
     }
   }, [isLoading, data, startTransition]);
 
-  // Handle loading and error states
-  if (isLoading || isPending) return null; // Don't show loading text, use placeholders
-  if (error) return <p>Error loading data: {error.message}</p>;
+  if (isLoadingdata || isLoading || isPending) {
+    
+    return (
+      <div className="loading-state">
+        <HeroSectionPlaceholder />
+        <SplashContainerPlaceholder />
+        <AboutSectionPlaceholder />
+
+            <div className="loading-container">
+            <p>Loading...</p>
+            </div>
+      </div>
+    );
+  }
+
+  if (errordata || error) {
+    return <p>Error loading data: {errordata || error.message}</p>;
+  }
+
+  const serviceshort_description = dataser?.service_data?.sub_description || 'Loream Ipsum';
+  const servicetitle = dataser?.service_data?.title || 'Loream Ipsum';
+  const servicecontent = dataser?.service_data?.description || 'Loream Ipsum';
+  const servicesubtitle = dataser?.service_data?.sub_heading || 'Loream Ipsum';
 
   return (
-   <div data-barba="container" data-barba-namespace="home">
+    <div data-barba="container" data-barba-namespace="home">
       <HeroSection
         banner={{
           image: heroImage,
-          title: "Services",
-          description: lorem.description,
+          title: servicetitle,
+          description: serviceshort_description,
         }}
       />
       <ArrowBounce id="next-section" />
@@ -74,9 +85,9 @@ const ServiceContent = () => {
         <SplashContainer />
         <AboutSection
           paginationText={lorem.service.pagination.second}
-          title={"Adventure"}
-          introText={lorem.description}
-          galleryItems={works.services || []} // Use works.services or fallback to empty array
+          title={servicesubtitle}
+          introText={servicecontent}
+          galleryItems={works.services || []}
         />
       </section>
     </div>

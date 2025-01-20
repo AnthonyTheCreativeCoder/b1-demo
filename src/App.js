@@ -177,11 +177,19 @@ function AppContent() {
     <div>
       <Header
         header={{
-          menu_items: isFetching ? [] : data?.header_menu_items,
+          menu_items: data?.header_menu_items,
           logo: isFetching ? Logo : data?.logo_url,
         }}
         err={error}
       />
+
+      {/* <Header
+        header={{
+          menu_items: isFetching ? [] : data?.header_menu_items,
+          logo: isFetching ? Logo : data?.logo_url,
+        }}
+        err={error}
+      />     */}
       <main id="main">
         <Routes location={location}>
           <Route path="/" element={<HomePage />} />

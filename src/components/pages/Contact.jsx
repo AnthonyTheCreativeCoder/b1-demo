@@ -4,6 +4,7 @@ import ArrowBounce from "../common/ui-sections/ArrowBounce";
 import ContactForm from "../common/ui-sections/ContactForm";
 import { heroImage } from "../../assets";
 import useContactForm from "../../hooks/react-query/useContactForm";
+import useContactPage from "../../hooks/react-query/useContactPage";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,30 @@ function Contact() {
 
   // Call the useContactForm hook here to get the mutation result
   const { loading, error, success, submitForm } = useContactForm();
+  const {dataser, isLoadingdata, errordata} = useContactPage();
+  let headline = '';
+  let contact_sub_heading = '';
+  let contact_banner_content = '';
+  let contact_subheading_content = '';
+  let contact_phone = '';
+  let contact_email = '';
+  let contact_address = '';
+  
+
+  if (isLoadingdata) {
+    // console.log("Loading data...");
+  } else if (dataser && dataser.contact_data) {
+    // console.log(dataser.contact_data);
+    headline = dataser.contact_data.contact_heading;
+    contact_sub_heading = dataser.contact_data.contact_sub_heading;
+    contact_banner_content = dataser.contact_data.contact_banner_content;
+    contact_subheading_content = dataser.contact_data.contact_subheading_content;
+    contact_phone = dataser.contact_data.contact_phone;
+    contact_email = dataser.contact_data.contact_email;
+    contact_address = dataser.contact_data.contact_address;
+
+  }
+
 
   // Handle form field change
   const handleInputChange = (e) => {
@@ -48,79 +73,15 @@ function Contact() {
         <HeroSection
           banner={{
             image: heroImage,
-            title: "Contact",
+            title: headline,
             description:
-              "Give us a few details and we'll offer the best solution. Connect by phone, chat, email, and more...",
+            contact_banner_content
           }}
         />
       </div>
-      <ArrowBounce id="contact-section" />
-      <ContactForm />
-     {/* <form className="form-box" onSubmit={handleSubmit}>
-        <div className="container-block form-wrapper">
-          <div className="head-text-box">
-            <p className="text-blk contactus-head">Contact us</p>
-            <p className="text-blk contactus-subhead">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-          <div className="responsive-container-block">
-            <div className="responsive-cell-block wk-ipadp-6">
-              <p className="text-blk input-title">FIRST NAME</p>
-              <input
-                className="input"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="responsive-cell-block wk-ipadp-6">
-              <p className="text-blk input-title">LAST NAME</p>
-              <input
-                className="input"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="responsive-cell-block wk-ipadp-6">
-              <p className="text-blk input-title">EMAIL</p>
-              <input
-                className="input"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="responsive-cell-block wk-ipadp-6">
-              <p className="text-blk input-title">PHONE NUMBER</p>
-              <input
-                className="input"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="responsive-cell-block wk-ipadp-12">
-              <p className="text-blk input-title">WHAT DO YOU HAVE IN MIND</p>
-              <textarea
-                className="textinput"
-                name="query"
-                placeholder="Please enter query..."
-                value={formData.query}
-                onChange={handleInputChange}
-              ></textarea>
-            </div>
-          </div>
-          <div className="btn-wrapper">
-            <button className="submit-btn" type="submit" disabled={loading}>
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </div>
-          {success && <p className="success-message">Form submitted successfully!</p>}
-          {error && <p className="error-message">{error.message || error}</p>}
-        </div>
-      </form>*/}
+      <ArrowBounce id="contact-section"/>
+      <ContactForm  contact_sub_heading={contact_sub_heading} contact_subheading_content={contact_subheading_content} contact_phone={contact_phone} contact_email={contact_email} contact_address={contact_address}/>
+    
     </>
   );
 }

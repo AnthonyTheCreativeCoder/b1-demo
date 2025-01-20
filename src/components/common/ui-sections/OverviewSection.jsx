@@ -37,7 +37,7 @@ const OverviewSection = ({ overview: { title, description } }) => {
                 customClass="typewrite"
               />
               <a href="https://b1interactive.com/" target="_blank" rel="noreferrer" className="white_btn_black_bg mt-5">
-                View Website
+                View Websites
               </a>
             </div>
           </div>
