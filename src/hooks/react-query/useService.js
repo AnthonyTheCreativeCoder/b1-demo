@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import WordPressService from "../../services/WordPressService";
+import hearoimg from "../../assets/images/hero-image.png";
 const worksType = {
   image_banner: "",
   banner_title: "",
@@ -17,6 +18,7 @@ const worksType = {
   lets_connect_title: "",
   lets_connect_message: "",
   lets_connect_button_title: "",
+  
 };
 const siteInitialData = {
   work_items: [
@@ -30,7 +32,7 @@ const siteInitialData = {
   ],
   banner_title: "Work",
   image_banner:
-    "https://b1interactistg.wpenginepowered.com/wp-content/uploads/2024/09/hero-image.png",
+  hearoimg,
   featured_work_section_pagination: "01/02",
   featured_work_section_title: "FEATURED WORK",
   featured_work_section_description:

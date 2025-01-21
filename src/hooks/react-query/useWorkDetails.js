@@ -5,22 +5,22 @@ const siteInitialData = {
   post_title: "",
   post_content: "Web Design / Development / SEO / Service / Service",
   featured_image:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/bg.png",
+    "",
   item_services: ["Development", "SEO", "Service", "Web Design"],
   work_details_page_mobile_gallery: [
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/Kline-home-mobile-4.png",
+    "",
   ],
   work_details_page_gallery_section: [
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/gal-4.png",
+    "",
   ],
   work_details_page_module_gallery_section: [
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/module-bg8.jpg",
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/module-bg7.jpg",
+    "",
+    "",
   ],
   work_logo:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/kline-logo.png",
+    "",
   work_details_page_banner:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/bg.png",
+    "",
   work_details_page_description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   work_details_page_overview_title: "Overview",
@@ -29,9 +29,9 @@ const siteInitialData = {
   work_details_page_button_title: "View Website",
   work_details_page_button_link: "#",
   work_details_page_video_image:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/video.png",
+    "",
   work_details_page_video_url:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/video-1.png",
+    "",
   work_details_page_challange_section_title: "Challange",
   work_details_page_challange_section_description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -39,7 +39,7 @@ const siteInitialData = {
   work_details_page_approach_section_description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   work_details_page_laptop_section_animation:
-    "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/Kline-Designs-scaled.jpg",
+    "",
   work_details_page_mobile_horizontal_slider_section_title: "Mobile title",
   work_details_page_mobile_horizontal_slider_section_description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -57,7 +57,7 @@ const siteInitialData = {
       item_content: "Web Design / Development / SEO / Service",
       item_url: "ride-a-kart",
       item_thumbnail:
-        "https://wordpress-1360300-5087149.cloudwaysapps.com/wp-content/uploads/2024/09/gallery-3.jpg",
+        "",
     },
   ],
   work_details_page_testimonials: [

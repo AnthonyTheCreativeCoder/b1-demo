@@ -148,14 +148,17 @@ const HorizontalSlider = ({
                 </div>
               </div>
             </div>
-            <div className="swiper-wrapper" ref={swiperWrapperRef}>
+        
+              {mobileGallery && mobileGallery.filter(image => image).length > 0 && (
+              <div className="swiper-wrapper" ref={swiperWrapperRef}>
               <div className="swiper-slide placeholder"></div>
-              {mobileGallery.map((image, index) => (
+              {mobileGallery.filter(image => image).map((image, index) => (
                 <div className="swiper-slide" key={index}>
                   <img src={image} alt={`Slide ${index}`} />
                 </div>
               ))}
-            </div>
+              </div>
+              )}
           </div>
         </div>
       </section>

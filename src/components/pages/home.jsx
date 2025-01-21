@@ -1,4 +1,4 @@
-import React, { startTransition, useState } from "react";
+import React, { startTransition, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HomeBanner from "../common/ui-sections/HomeBanner";
 import SplashContainer from "../common/animations/splashAnime/SplashContainer";
@@ -14,7 +14,10 @@ import maskWhiteNew from "../../assets/images/mask-white-new.svg";
 const HomePage = () => {
     const { data, error } = useHome();
     const [loading, setLoading] = useState(false); 
+
+    // const [videodatacustom, setVideoDataCustom] = useState(false); 
     const homedata = data;
+    
     const paginationText = "02/03";
     const galleryItems = homedata?.adventure_items ? homedata.adventure_items : [];
     const [selectedImage, setSelectedImage] = useState(null);
@@ -35,15 +38,23 @@ const HomePage = () => {
 
   return (
     <>
-      <HomeBanner
+    
+     {(homedata?.video_banner || homedata?.image_banner) ? (
+        <HomeBanner
         videoUrl={homedata?.video_banner}
         bannerText={homedata?.video_banner_text}
         bannerType={homedata?.banner_type}
         imageUrl={homedata?.image_banner}
-      />
-
-      <HomeTypingArea typingText={homedata?.home_typing_text} />
-
+        />
+        ) : (
+       <HomeBanner
+        videoUrl=''
+        bannerText={homedata?.video_banner_text}
+        bannerType={homedata?.banner_type}
+        imageUrl=''
+        />
+        )}
+     {homedata?.home_typing_text ? <HomeTypingArea typingText={homedata.home_typing_text} /> : null}
       <WorkSection
         title={homedata?.work_section_title}
         paginationText={homedata?.work_section_pagination}
@@ -179,10 +190,6 @@ const HomePage = () => {
 
 </div>
         {/*Home page about section*/}
-
-
-
-
       </section>
 
       <ServiceArea

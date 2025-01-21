@@ -6,10 +6,13 @@ import "../../../styles/home-banner-style.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
+  
   const [scrollDirection, setScrollDirection] = useState(1);
   const [currentScroll, setCurrentScroll] = useState(0);
   const loopRef = useRef(null);
   const [textArray, setTextArray] = useState([]);
+
+   
 
   useEffect(() => {
     // Initialize animations when the component mounts
@@ -236,6 +239,9 @@ const HomeBanner = ({ videoUrl, bannerText, bannerType, imageUrl }) => {
             <img src={imageUrl} alt="home banner 1" />
           </div>
         )}
+
+
+        
 
         
         <div className="overlay" id="overlay">
