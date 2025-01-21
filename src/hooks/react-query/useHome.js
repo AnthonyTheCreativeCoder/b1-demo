@@ -26,7 +26,7 @@ const siteInitialData = {
   video_banner:
     "",
   video_banner_text:
-    "Interactive/ Web/Design/Digital/Marketing/SEO/ Social/Media/",
+    "",
   home_typing_text:
     ".",
   work_section_pagination: "",
