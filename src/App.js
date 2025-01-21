@@ -134,9 +134,9 @@ const LoadingIndicator = () => {
       <img
         src={Logo} // Replace with the actual path to your loading image
         alt="Loading..."
-        className="loading-image"
+        className="loading-image"  style={{ height: 'auto' }}
       />
-      <p>Loading...</p>
+      
     </div>
   );
 };

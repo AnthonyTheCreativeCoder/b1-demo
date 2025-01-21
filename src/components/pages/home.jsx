@@ -11,7 +11,7 @@ import useService from "../../hooks/react-query/useService";
 import Typewriter from "../common/animations/Typewriter";
 import { Link, useNavigate } from "react-router-dom";
 import maskWhiteNew from "../../assets/images/mask-white-new.svg";
-import Logo from "../..//assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 const HomePage = () => {
     const { data, error } = useHome();
     const [loading, setLoading] = useState(false); 
@@ -50,12 +50,12 @@ const HomePage = () => {
         ) : (
           <div className="loading-container">
           <img
-            src="" // Replace with the actual path to your loading image
-            alt="Loading"
-            className="loading-image"
+          src={Logo} // Replace with the actual path to your loading image
+          alt="Loading..."
+          className="loading-image"  style={{ height: 'auto' }}
           />
-          <p></p>
-        </div>
+    
+          </div>
         )}
      {homedata?.home_typing_text ? <HomeTypingArea typingText={homedata.home_typing_text} /> : null}
       <WorkSection

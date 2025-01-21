@@ -1,6 +1,7 @@
 import React from 'react';
 import useAboutDetails from "../../../hooks/react-query/useAboutDetails";
 import "../../../styles/AboutPage.css";
+import Logo from "../../../assets/images/logo.png";
 
 export default function AboutDescription() {
   const { data, error, isLoading } = useAboutDetails();
@@ -11,7 +12,12 @@ export default function AboutDescription() {
   if (isLoading) {
     return (
       <div className="loading-container">
-        <p>Loading...</p>
+      <img
+      src={Logo} // Replace with the actual path to your loading image
+      alt="Loading..."
+      className="loading-image"  style={{ height: 'auto' }}
+      />
+
       </div>
     );
   }

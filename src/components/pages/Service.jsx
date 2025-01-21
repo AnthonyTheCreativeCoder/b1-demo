@@ -8,6 +8,7 @@ import { heroImage } from "../../assets";
 import useService from "../../hooks/react-query/useService";
 import useServiceContent from "../../hooks/react-query/useServiceContent";
 import "../../styles/preloader-style.css";
+import Logo from "../../assets/images/logo.png";
 
 // Placeholder components for smoother loading
 const HeroSectionPlaceholder = () => (
@@ -55,9 +56,14 @@ const ServiceContent = () => {
         <SplashContainerPlaceholder />
         <AboutSectionPlaceholder />
 
-            <div className="loading-container">
-            <p>Loading...</p>
-            </div>
+                        <div className="loading-container">
+                        <img
+                        src={Logo} // Replace with the actual path to your loading image
+                        alt="Loading..."
+                        className="loading-image"  style={{ height: 'auto' }}
+                        />
+
+                        </div>
       </div>
     );
   }

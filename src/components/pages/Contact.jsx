@@ -5,6 +5,8 @@ import ContactForm from "../common/ui-sections/ContactForm";
 import { heroImage } from "../../assets";
 import useContactForm from "../../hooks/react-query/useContactForm";
 import useContactPage from "../../hooks/react-query/useContactPage";
+import Logo from "../../assets/images/logo.png";
+
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -28,6 +30,17 @@ function Contact() {
   
 
   if (isLoadingdata) {
+
+    return (
+      <div className="loading-container">
+      <img
+      src={Logo} // Replace with the actual path to your loading image
+      alt="Loading..."
+      className="loading-image"  style={{ height: 'auto' }}
+      />
+
+      </div>
+    );
     // console.log("Loading data...");
   } else if (dataser && dataser.contact_data) {
     // console.log(dataser.contact_data);
