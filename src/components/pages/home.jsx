@@ -1,4 +1,5 @@
-import React, { startTransition, useState, useEffect } from "react";
+import React, { startTransition, useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { motion, AnimatePresence } from "framer-motion";
 import HomeBanner from "../common/ui-sections/HomeBanner";
 import SplashContainer from "../common/animations/splashAnime/SplashContainer";
@@ -36,6 +37,23 @@ const HomePage = () => {
     }, 1200); // Wait for the animation duration (adjust to match the transition time)
     };
 
+
+    // const [selectedImage, setSelectedImage] = useState(null);
+  const turbulenceRef = useRef(null);
+
+    useEffect(() => {
+    if (selectedImage && turbulenceRef.current) {
+      gsap.fromTo(
+        turbulenceRef.current,
+        { attr: { baseFrequency: 0.01 } },
+        {
+          attr: { baseFrequency: 0.001 },
+          duration: 1.5,
+          ease: "power2.out"
+        }
+      );
+    }
+  }, [selectedImage]);
 
   return (
     <>
@@ -164,7 +182,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-         <AnimatePresence>
+          <AnimatePresence>
         {selectedImage && (
           <motion.div
             key="fullscreen-image"
@@ -173,18 +191,47 @@ const HomePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }} // Slower animation
-            onAnimationComplete={() => setLoading(false)} // Reset loading state
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            onClick={() => setSelectedImage(null)}
             style={{
               position: "fixed",
               top: 0,
               left: 0,
               width: "100vw",
               height: "100vh",
-              zIndex: 1000,
-              background: `url(${selectedImage.item_thumbnail}) center center / cover no-repeat`,
+              zIndex: 1000
             }}
-          />
+          >
+            <svg width="100%" height="100%">
+              <defs>
+                <filter id="waveFilter">
+                  <feTurbulence
+                    ref={turbulenceRef}
+                    type="fractalNoise"
+                    baseFrequency="0.08"
+                    numOctaves="2"
+                    result="turb"
+                  />
+                  <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="turb"
+                    scale="40"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                  />
+                </filter>
+              </defs>
+              <image
+                href={selectedImage.item_thumbnail}
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMid slice"
+                filter="url(#waveFilter)"
+              />
+            </svg>
+          </motion.div>
         )}
       </AnimatePresence>
 
